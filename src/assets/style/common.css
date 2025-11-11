@@ -1,0 +1,1094 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap');
+
+
+@font-face {
+	font-family: はれのそら明朝;
+	src: url('https://cdn.leafscape.be/Harenosora/harenosora_web.woff2') format("woff2");
+} */
+
+/*-------------------------------------------------
+このフォントはIPAフォントライセンスv1.0の下で提供されています。
+http://ipafont.ipa.go.jp/ipa_font_license_v1.html
+オリジナルのフォントは以下から取得できます。
+https://fontopo.com/?p=377
+http://ipafont.ipa.go.jp/
+-------------------------------------------------*/
+
+/* @font-face {
+	font-family: 源ノ角ゴシック;
+	src: url('http://fonts.googleapis.com/earlyaccess/notosansjapanese.css') format("woff2");
+} */
+
+/* @font-face
+{
+font-family: Noto Sans JP;
+src: url('http://fonts.googleapis.com/earlyaccess/notosansjp.css')
+	 format("woff2");
+} */
+@font-face {
+    font-family: "TsunagiGothic";
+    src: url("~@/assets/fonts/tsunagiGothic/TsunagiGothic.ttf")
+        format("truetype");
+}
+
+/* -------------------------------------------
+	Reset
+------------------------------------------- */
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+blockquote,
+pre,
+table,
+caption,
+th,
+td,
+address,
+form,
+fieldset,
+legend,
+object,
+header,
+footer,
+section,
+article,
+nav,
+figure,
+canvas {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+fieldset,
+img {
+    border: none;
+    vertical-align: top;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+caption,
+th,
+td {
+    vertical-align: top;
+    text-align: left;
+}
+
+q:before,
+q:after {
+    content: "";
+}
+
+abbr,
+acronym {
+    border: none;
+}
+
+sup {
+    vertical-align: top;
+}
+
+sub {
+    vertical-align: baseline;
+}
+
+a,
+object,
+embed {
+    outline: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+    outline: none;
+}
+
+header,
+footer,
+section,
+article,
+nav,
+figure,
+canvas {
+    display: block;
+}
+
+/* -------------------------------------------
+	Base: Elements
+------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+body {
+    min-width: 320px;
+    margin: 0 auto;
+    font-family: TsunagiGothic !important;
+    font-size: 16px;
+    /* font-weight: normal; */
+    color: #1b465b;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    word-wrap: break-word;
+    /* background: #f9f9f9; */
+    position: relative;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* スマホ表示などの左・下の謎の余白を消す★★★★★★★★★★ */
+    /* overflow: hidden; */
+}
+
+.v-application ul {
+    padding: 0px;
+}
+
+.v-application ol {
+    padding: 0px;
+}
+
+.theme--light.v-application {
+    color: #1b465b;
+    background-color: #e4d8d3;
+    font-family: TsunagiGothic !important;
+}
+
+.theme--light.v-icon {
+    color: #1b465b;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: inherit;
+    /* text-decoration: none; */
+    /* opacity: .8; */
+}
+
+strong,
+em,
+b {
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* -------------------------------------------
+	header
+------------------------------------------- */
+.header {
+    padding: 30px 15px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.header-logo {
+    width: 100px;
+    position: relative;
+}
+
+.header-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header-logo a {
+    display: block;
+    transition: opacity 250ms;
+}
+
+.header-logo-main:hover {
+    opacity: 0.65;
+}
+
+.header-logo-hidden:hover {
+    opacity: 0.35;
+}
+
+.header-line {
+    padding: 0px 0px 0px 0px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: auto;
+    left: auto;
+    z-index: 2;
+    background-color: #e4d8d3;
+    width: 100%;
+    height: 70px;
+}
+
+.header-title {
+    position: fixed;
+    transform: translateX(-50%);
+    top: 5px;
+    left: 52%;
+    z-index: 3;
+    background-color: #1b465b;
+    width: 200px;
+    height: 60px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.header-title p {
+    position: absolute;
+    margin: 0px;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translateY(-50%) translateX(-50%);
+    white-space: pre-wrap;
+    line-height: 1.3em;
+}
+
+@media screen and (min-width: 760px) {
+    .header-line {
+        padding: 0px 0px 0px 0px !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: auto;
+        left: auto;
+        z-index: 2;
+        background-color: #e4d8d3;
+        width: 100%;
+        height: 90px;
+    }
+
+    .header-title {
+        position: fixed;
+        transform: translateX(-50%);
+        top: 5px;
+        left: 52%;
+        z-index: 3;
+        background-color: #1b465b;
+        width: 350px;
+        height: 80px;
+        color: #ffffff;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 5px;
+    }
+}
+/* -------------------------------------------
+	fade（フェードインなどの制御）
+------------------------------------------- */
+
+.fadeIn {
+    opacity: 0;
+    /* ここを追加 */
+    animation-duration: 0.7s;
+    /* アニメーション時間 */
+    /*animation-delay : 1s;/* 変化開始の時間 */
+    animation-name: fadeIn;
+    /* アニメーション名 */
+    /*animation-iteration-count: 1;/* アニメーションの繰り返し（無限）*/
+    animation-fill-mode: forwards;
+    /*これで値を保持*/
+    /* ↓　これらをまとめて以下のように書く ↓*/
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: fadeIn 700ms forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(150px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* -------------------------------------------
+	Pages: App
+------------------------------------------- */
+
+@media screen and (min-width: 768px) {
+    .hidden_pc {
+        display: none;
+    }
+}
+
+.body-title {
+    position: relative;
+    background-color: #1b465b;
+    width: 200px;
+    height: 60px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.body-title p {
+    position: absolute;
+    margin: 0px;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translateY(-50%) translateX(-50%);
+    white-space: pre-wrap;
+    line-height: 1.3em;
+}
+
+.v-navigation-drawer__content {
+    background-color: #e4d8d3;
+}
+
+.nav_list ul {
+    width: 100%;
+    padding: 0;
+}
+
+.nav_list ul li {
+    font-size: 20px;
+    /* background-color: #1b465b; */
+    color: #1b465b;
+    text-align: center;
+    margin: 20px 0px;
+    border-radius: 5px;
+    width: 100%;
+    /* 子要素を水平方向の中央に配置する */
+    display: flex;
+    justify-content: center;
+}
+
+.nav_list ul li div {
+    background-color: #1b465b;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.nav_list ul li a {
+    position: relative;
+    width: 90%;
+    background-color: #1b465b;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.disable {
+    pointer-events: none;
+    opacity: 0.5;
+    position: relative;
+}
+
+.marginTop {
+    margin-top: 40px;
+}
+
+.nav_logo {
+    margin: 10px;
+}
+
+.nav_logo a img {
+    width: 70px;
+}
+
+.hamburger {
+    position: fixed;
+    top: 1%;
+    right: 15px;
+    z-index: 5;
+}
+
+@media screen and (min-width: 760px) {
+    .body-title {
+        position: relative;
+        background-color: #1b465b;
+        width: 350px;
+        height: 80px;
+        color: #ffffff;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 5px;
+        margin: 0 auto;
+    }
+
+    .body-title p {
+        position: absolute;
+        margin: 0px;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translateY(-50%) translateX(-50%);
+        white-space: pre-wrap;
+        line-height: 1.3em;
+    }
+
+    .nav_list ul li {
+        font-size: 20px;
+        /* background-color: #1b465b; */
+        color: #1b465b;
+        text-align: center;
+        border-radius: 5px;
+        /* 子要素を水平方向の中央に配置する */
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav_list ul li a {
+        position: relative;
+        width: 50%;
+        background-color: #1b465b;
+        color: #ffffff;
+        border-radius: 5px;
+    }
+
+    .nav_logo a img {
+        width: 100px;
+    }
+}
+/* -------------------------------------------
+	Pages: Home
+------------------------------------------- */
+
+.center {
+    /* 子要素を水平方向の中央に配置する */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.home-logo {
+    width: 40%;
+    margin-top: 20px;
+}
+
+.concept-balloon {
+    text-align: center;
+    position: relative;
+    padding: 9px;
+    background: #1b465b;
+    font-size: 16px;
+    font-weight: 100;
+    color: #ffffff;
+    border-radius: 5px;
+    width: 83%;
+    margin: 20px auto;
+    white-space: pre-wrap;
+
+    /* z-index: 99; */
+}
+
+.concept-balloon:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    display: block;
+    /* width: 0;
+    height: 0;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #1b465b;
+    border-left: 15px solid transparent; */
+    /* transformがセンタリングしたい要素の縦、横幅分を引いてくれるので中央になる */
+    /* transform: translateY(-50%) translateX(-50%); */
+}
+
+.home_list {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.home_list li {
+    width: 33%;
+    margin: 0% 1% 0% 1%;
+    position: relative;
+}
+
+.homeCard {
+    position: absolute;
+    top: 0%;
+    opacity: 0.7;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    background-color: #1b465b;
+    color: #ffffff;
+    display: flex;
+    text-align: center;
+    /* 子要素を水平方向の中央に配置する */
+    display: flex;
+    justify-content: center;
+}
+
+.homeCard p {
+    margin: auto;
+}
+
+.img_pad {
+    padding: 0px 15px;
+}
+
+@media screen and (min-width: 760px) {
+    .home-logo {
+        width: 25%;
+    }
+}
+
+/* -------------------------------------------
+	Pages: About
+------------------------------------------- */
+.about-inline {
+    position: relative;
+    display: inline-block;
+    white-space: pre-wrap;
+    font-size: 13px;
+}
+
+.about-inline p {
+    margin: 0;
+}
+
+.about-inline a {
+    text-decoration: underline;
+}
+.about-inline-left {
+    width: 10%;
+}
+
+.about-inline-middle {
+    width: 20%;
+    text-align: left;
+    vertical-align: top;
+}
+.about-inline-right {
+    width: 70%;
+    text-align: left;
+    vertical-align: top;
+}
+
+@media screen and (min-width: 760px) {
+    .about-inline {
+        position: relative;
+        display: inline-block;
+        white-space: pre-wrap;
+        font-size: 18px;
+    }
+
+    .about-inline-left {
+        width: 23%;
+    }
+
+    .about-inline-middle {
+        width: 17%;
+        text-align: left;
+        vertical-align: top;
+    }
+    .about-inline-right {
+        width: 60%;
+        text-align: left;
+        vertical-align: top;
+    }
+}
+
+/* -------------------------------------------
+	Pages: Contact
+------------------------------------------- */
+.contact-inline {
+    position: relative;
+    display: inline-block;
+}
+
+.contact-inline p {
+    margin: 0;
+}
+.contact-inline-left {
+    width: 40%;
+    text-align: right;
+}
+
+.contact-inline-right {
+    width: 60%;
+    text-align: left;
+}
+@media screen and (min-width: 760px) {
+    .contact-inline {
+        position: relative;
+        display: inline-block;
+        font-size: 20px;
+    }
+}
+/* -------------------------------------------
+	Pages: GuestHouse
+------------------------------------------- */
+.GuestHouse {
+    top: 100px;
+}
+
+.GuestHouse p {
+    padding: 0px 50px;
+    white-space: pre-wrap;
+}
+
+.GuestHouse_list {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 0px !important;
+    margin: 5px 0px 0px 0px;
+}
+
+.GuestHouse_list p {
+    padding: 0px;
+    margin: 5px 0px 0px 0px;
+    white-space: pre-wrap;
+}
+
+.description {
+    padding: 0px;
+    margin: 0px;
+    font-size: 22px;
+    white-space: pre-wrap;
+}
+
+.smalldescription {
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    white-space: pre-wrap;
+}
+
+.tinydescription {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    white-space: pre-wrap;
+}
+
+.description div {
+    /* 子要素を水平方向の中央に配置する */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.smalldescription div {
+    /* 子要素を水平方向の中央に配置する */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.hooper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hooper-list {
+    height: auto !important;
+    background-color: #e4d8d3;
+}
+
+.bullet {
+    list-style-type: square;
+    list-style-position: outside;
+}
+
+.bullet li::marker {
+    color: #000000;
+}
+
+.smallbullet {
+    list-style-type: square;
+    list-style-position: outside;
+}
+
+/* .bullet:before {
+	content: "";
+	/* 空の要素作成 
+	display: inline-block;
+	/* インラインブロックにする 
+	position: relative;
+	left: 0%;
+	border: 5px solid #000000;
+	/* transformがセンタリングしたい要素の縦、横幅分を引いてくれるので中央になる 
+	transform: translateY(-50%) translateX(-50%);
+}
+
+.smallbullet:before {
+	content: "";
+	/* 空の要素作成 
+	display: inline-block;
+	/* インラインブロックにする 
+	position: relative;
+	left: 0%;
+	border: 3px solid #000000;
+	/* transformがセンタリングしたい要素の縦、横幅分を引いてくれるので中央になる 
+	transform: translateY(-50%) translateX(-50%);
+} */
+
+.no-margin {
+    margin: 0px !important;
+}
+
+/* 右のリスト表示 */
+.right-list {
+    padding: 0px 0px 0px 0px !important;
+    display: flex;
+    position: fixed;
+    top: 80px;
+    right: 5px;
+    z-index: 2;
+}
+
+.right-list-svg {
+    opacity: 1;
+}
+
+.right-list-svg-op {
+    opacity: 0.3;
+}
+
+@media screen and (min-width: 760px) {
+    .tinydescription {
+        padding: 0px;
+        margin: 0px;
+        font-size: 20px;
+        white-space: pre-wrap;
+    }
+}
+
+/* -------------------------------------------
+	Pages: Cafe
+------------------------------------------- */
+.Cafetantan {
+    top: 100px;
+}
+
+.Cafetantan p {
+    padding: 0px 50px;
+    white-space: pre-wrap;
+}
+
+.Cafetantan_list {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 0px !important;
+    margin: 5px 0px 0px 0px;
+}
+
+.Cafetantan_list p {
+    padding: 0px;
+    margin: 5px 0px 0px 0px;
+    white-space: pre-wrap;
+}
+
+/* -------------------------------------------
+	Pages: Consultant
+------------------------------------------- */
+.Consultant {
+    top: 100px;
+}
+
+.Consultant p {
+    padding: 0px 16px;
+    white-space: pre-wrap;
+}
+.cons-img {
+    position: relative;
+}
+
+.img-desc {
+    position: absolute;
+    top: -30px;
+    left: 15px;
+    font-size: 18px;
+}
+
+.workslist li {
+    margin-bottom: 40px;
+}
+
+.works-desc {
+    font-size: 13px;
+}
+
+.mail {
+    font-size: 18px;
+}
+
+.bullet-list {
+    font-size: 15px;
+}
+
+.bullet-list ul li p {
+    margin: 0;
+    padding: 0;
+    /* 子要素を左寄せに配置する */
+    display: flex;
+}
+.cons-inline {
+    position: relative;
+    display: inline-block;
+    white-space: pre-wrap;
+    font-size: 13px;
+}
+
+.cons-inline p {
+    margin: 0;
+}
+.cons-inline-left {
+    width: 5%;
+}
+
+.cons-inline-middle {
+    width: 5%;
+    text-align: left;
+    vertical-align: top;
+}
+.cons-inline-right {
+    width: 85%;
+    text-align: left;
+    vertical-align: top;
+}
+.cons-inline-right2 {
+    width: 2%;
+}
+
+.works-inline-left {
+    width: 1%;
+}
+.works-inline-middle {
+    width: 97%;
+    text-align: left;
+    vertical-align: top;
+}
+.works-inline-right {
+    width: 7%;
+}
+.spacer {
+    margin: 50px;
+}
+@media screen and (min-width: 760px) {
+    .cons-inline-left {
+        width: 20%;
+    }
+    .cons-inline-middle {
+        width: 10%;
+        text-align: left;
+        vertical-align: top;
+    }
+    .cons-inline-right {
+        width: 60%;
+        text-align: left;
+        vertical-align: top;
+    }
+    .cons-inline-right2 {
+        width: 10%;
+    }
+    .bullet-list {
+        font-size: 20px;
+    }
+    .works-inline-left {
+        width: 15%;
+    }
+    .works-inline-middle {
+        width: 75%;
+        text-align: left;
+        vertical-align: top;
+    }
+    .works-desc {
+        font-size: 20px;
+    }
+    .works-inline-right {
+        width: 10%;
+    }
+    .mail {
+        font-size: 20px;
+    }
+    .spacer {
+        margin: 120px;
+    }
+}
+
+/* -------------------------------------------
+	Pages: NewsDetail
+------------------------------------------- */
+.newsDetail-inline {
+    position: relative;
+    display: inline-block;
+    white-space: pre-wrap;
+    font-size: 13px;
+}
+.newsDetail-inline-left {
+    width: 10%;
+}
+
+.newsDetail-inline-middle {
+    width: 20%;
+    text-align: left;
+    vertical-align: top;
+}
+.newsDetail-inline-right {
+    width: 70%;
+    text-align: left;
+    vertical-align: top;
+}
+
+@media screen and (min-width: 760px) {
+    .newsDetail-inline {
+        position: relative;
+        display: inline-block;
+        white-space: pre-wrap;
+        font-size: 18px;
+    }
+
+    .newsDetail-inline-left {
+        width: 23%;
+    }
+
+    .newsDetail-inline-middle {
+        width: 17%;
+        text-align: left;
+        vertical-align: top;
+    }
+    .newsDetail-inline-right {
+        width: 60%;
+        text-align: left;
+        vertical-align: top;
+    }
+}
+
+.newsDetailDescription {
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+.newsDetailDescription a {
+    text-decoration: underline;
+}
+.newsDetail {
+    padding: 0px;
+    margin: 16px;
+}
+
+.newsDetail-list {
+    width: auto;
+    text-align: center;
+    margin: 0% 3%;
+}
+.newsDetail-list p{
+    white-space: pre-wrap;
+    font-size: 13px;
+    margin: 0px;
+}
+.newsDetail-list li {
+    width: 100%;
+    box-align: center;
+    margin-top: 10%;
+    vertical-align: top;
+    overflow: visible;
+}
+
+.newsDetail-list-mode2 {
+    width: auto;
+    text-align: center;
+}
+.newsDetail-list-mode2 p{
+    white-space: pre-wrap;
+    font-size: 13px;
+    margin: 0px;
+}
+.newsDetail-list-mode2 li {
+    width: 44%;
+    margin: 1% 1%;
+    vertical-align: top;
+    display: inline-block;
+    overflow: visible;
+}
+.newsDetail-list-mode2-last {
+    width: 91% !important;
+    vertical-align: top;
+    display: inline-block;
+    overflow: visible;
+}
+@media screen and (min-width: 760px) {
+    .newsDetailDescription {
+        padding: 0px;
+        margin: 40px;
+        font-size: 18px;
+        white-space: pre-wrap;
+    }
+    .newsDetail-list p{
+        white-space: pre-wrap;
+        font-size: 17px;
+        margin: 0px;
+    }
+    .newsDetail-list-mode2 p{
+        white-space: pre-wrap;
+        font-size: 17px;
+        margin: 0px;
+    }
+
+}
+
+/* -------------------------------------------
+	Pages: 
+------------------------------------------- */
+
+/* ADD */
+.v-application--wrap {
+    background-color: #e4d8d3;
+}
+
+html {
+    background-color: #e4d8d3;
+}

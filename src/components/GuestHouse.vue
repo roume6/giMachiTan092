@@ -1,0 +1,659 @@
+<template>
+    <v-app class="GuestHouse">
+        <div>
+            <img
+                class="img_pad"
+                src="@/assets/image/guesthouse1.png"
+                width="100%"
+            />
+        </div>
+        <div>
+            <p class="center" v-text="guestHouseDescription"></p>
+        </div>
+
+        <!-- メインのリスト START-->
+        <ul class="GuestHouse_list">
+            <li @click="scrollToElement('targetPosBed')">
+                <p>部屋<br />Rooms</p>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#1b465b"
+                    width="60%"
+                >
+                    <title>bed</title>
+                    <path
+                        d="M19,7H11V14H3V5H1V20H3V17H21V20H23V11A4,4 0 0,0 19,7M7,13A3,3 0 0,0 10,10A3,3 0 0,0 7,7A3,3 0 0,0 4,10A3,3 0 0,0 7,13Z"
+                    />
+                </svg>
+            </li>
+            <li @click="scrollToElement('targetPosCalendar')">
+                <p>予約<br />Booking</p>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#1b465b"
+                    width="60%"
+                >
+                    <title>calendar-check</title>
+                    <path
+                        d="M19,19H5V8H19M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M16.53,11.06L15.47,10L10.59,14.88L8.47,12.76L7.41,13.82L10.59,17L16.53,11.06Z"
+                    />
+                </svg>
+            </li>
+            <li @click="scrollToElement('targetPosShower')">
+                <p>施設・設備<br />Facilities</p>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#1b465b"
+                    width="60%"
+                >
+                    <title>shower</title>
+                    <path
+                        d="M21,14V15C21,16.91 19.93,18.57 18.35,19.41L19,22H17L16.5,20C16.33,20 16.17,20 16,20H8C7.83,20 7.67,20 7.5,20L7,22H5L5.65,19.41C4.07,18.57 3,16.91 3,15V14H2V12H20V5A1,1 0 0,0 19,4C18.5,4 18.12,4.34 18,4.79C18.63,5.33 19,6.13 19,7H13A3,3 0 0,1 16,4C16.06,4 16.11,4 16.17,4C16.58,2.84 17.69,2 19,2A3,3 0 0,1 22,5V14H21V14M19,14H5V15A3,3 0 0,0 8,18H16A3,3 0 0,0 19,15V14Z"
+                    />
+                </svg>
+            </li>
+        </ul>
+        <ul class="GuestHouse_list">
+            <li @click="scrollToElement('targetPosMap')">
+                <p>アクセス<br />Access</p>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#1b465b"
+                    width="60%"
+                >
+                    <title>map-marker-radius</title>
+                    <path
+                        d="M12,2C15.31,2 18,4.66 18,7.95C18,12.41 12,19 12,19C12,19 6,12.41 6,7.95C6,4.66 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M20,19C20,21.21 16.42,23 12,23C7.58,23 4,21.21 4,19C4,17.71 5.22,16.56 7.11,15.83L7.75,16.74C6.67,17.19 6,17.81 6,18.5C6,19.88 8.69,21 12,21C15.31,21 18,19.88 18,18.5C18,17.81 17.33,17.19 16.25,16.74L16.89,15.83C18.78,16.56 20,17.71 20,19Z"
+                    />
+                </svg>
+            </li>
+            <li @click="scrollToElement('targetPosTicket')">
+                <p>イベント<br />Events</p>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#1b465b"
+                    width="60%"
+                >
+                    <title>ticket-confirmation-outline</title>
+                    <path
+                        d="M22 10V6C22 4.89 21.1 4 20 4H4C2.9 4 2 4.89 2 6V10C3.11 10 4 10.9 4 12S3.11 14 2 14V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V14C20.9 14 20 13.1 20 12S20.9 10 22 10M20 8.54C18.81 9.23 18 10.53 18 12S18.81 14.77 20 15.46V18H4V15.46C5.19 14.77 6 13.47 6 12C6 10.5 5.2 9.23 4 8.54L4 6H20V8.54M11 15H13V17H11M11 11H13V13H11M11 7H13V9H11Z"
+                    />
+                </svg>
+            </li>
+            <li @click="scrollToElement('targetPosEmail')">
+                <p>問い合わせ<br />Contact</p>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="#1b465b"
+                    width="60%"
+                >
+                    <title>email-outline</title>
+                    <path
+                        d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"
+                    />
+                </svg>
+            </li>
+        </ul>
+        <!-- メインのリスト END-->
+
+        <!-- 右側のリスト START-->
+        <div ref="rightlist" class="right-list hidden">
+            <ul class="right-list-svg">
+                <li ref="svgbed" @click="scrollToElement('targetPosBed')">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="37px"
+                    >
+                        <title>bed</title>
+                        <path
+                            d="M19,7H11V14H3V5H1V20H3V17H21V20H23V11A4,4 0 0,0 19,7M7,13A3,3 0 0,0 10,10A3,3 0 0,0 7,7A3,3 0 0,0 4,10A3,3 0 0,0 7,13Z"
+                        />
+                    </svg>
+                </li>
+                <li
+                    ref="svgcalendar"
+                    @click="scrollToElement('targetPosCalendar')"
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="37px"
+                    >
+                        <title>calendar-check</title>
+                        <path
+                            d="M19,19H5V8H19M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M16.53,11.06L15.47,10L10.59,14.88L8.47,12.76L7.41,13.82L10.59,17L16.53,11.06Z"
+                        />
+                    </svg>
+                </li>
+                <li ref="svgshower" @click="scrollToElement('targetPosShower')">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="37px"
+                    >
+                        <title>shower</title>
+                        <path
+                            d="M21,14V15C21,16.91 19.93,18.57 18.35,19.41L19,22H17L16.5,20C16.33,20 16.17,20 16,20H8C7.83,20 7.67,20 7.5,20L7,22H5L5.65,19.41C4.07,18.57 3,16.91 3,15V14H2V12H20V5A1,1 0 0,0 19,4C18.5,4 18.12,4.34 18,4.79C18.63,5.33 19,6.13 19,7H13A3,3 0 0,1 16,4C16.06,4 16.11,4 16.17,4C16.58,2.84 17.69,2 19,2A3,3 0 0,1 22,5V14H21V14M19,14H5V15A3,3 0 0,0 8,18H16A3,3 0 0,0 19,15V14Z"
+                        />
+                    </svg>
+                </li>
+                <li ref="svgmap" @click="scrollToElement('targetPosMap')">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="37px"
+                    >
+                        <title>map-marker-radius</title>
+                        <path
+                            d="M12,2C15.31,2 18,4.66 18,7.95C18,12.41 12,19 12,19C12,19 6,12.41 6,7.95C6,4.66 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M20,19C20,21.21 16.42,23 12,23C7.58,23 4,21.21 4,19C4,17.71 5.22,16.56 7.11,15.83L7.75,16.74C6.67,17.19 6,17.81 6,18.5C6,19.88 8.69,21 12,21C15.31,21 18,19.88 18,18.5C18,17.81 17.33,17.19 16.25,16.74L16.89,15.83C18.78,16.56 20,17.71 20,19Z"
+                        />
+                    </svg>
+                </li>
+                <li ref="svgticket" @click="scrollToElement('targetPosTicket')">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="37px"
+                    >
+                        <title>ticket-confirmation-outline</title>
+                        <path
+                            d="M22 10V6C22 4.89 21.1 4 20 4H4C2.9 4 2 4.89 2 6V10C3.11 10 4 10.9 4 12S3.11 14 2 14V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V14C20.9 14 20 13.1 20 12S20.9 10 22 10M20 8.54C18.81 9.23 18 10.53 18 12S18.81 14.77 20 15.46V18H4V15.46C5.19 14.77 6 13.47 6 12C6 10.5 5.2 9.23 4 8.54L4 6H20V8.54M11 15H13V17H11M11 11H13V13H11M11 7H13V9H11Z"
+                        />
+                    </svg>
+                </li>
+                <li ref="svgemail" @click="scrollToElement('targetPosEmail')">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="37px"
+                    >
+                        <title>email-outline</title>
+                        <path
+                            d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"
+                        />
+                    </svg>
+                </li>
+            </ul>
+        </div>
+        <!-- 右側のリスト END-->
+
+        <v-spacer style="margin: 250px"></v-spacer>
+        <span class="description">
+            <div ref="bed">
+                <p>部屋<br />Rooms</p>
+            </div>
+            <div>
+                <p>ドミトリー Dormitory</p>
+            </div>
+            <div>
+                <ul class="bullet">
+                    <li class="no-margin">6ベッドルーム(男女共用)</li>
+                </ul>
+            </div>
+            <div>
+                <p class="no-margin">6 beds mixroom</p>
+            </div>
+        </span>
+        <div class="img_pad">
+            <hooper style="height: auto" :settings="hooperSettings">
+                <slide v-for="(item, i) in items" :key="i">
+                    <img :src="item.src" width="85%" />
+                </slide>
+                <hooper-pagination slot="hooper-addons" />
+                <!-- <hooper-navigation slot="hooper-addons" /> -->
+            </hooper>
+        </div>
+        <span class="smalldescription">
+            <div>
+                <ul class="bullet">
+                    <li class="no-margin smallbullet">
+                        料金 1ベッド1名様 4000円
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <p class="no-margin">
+                    2段ベッドが3台並ぶ最大6人の相部屋です。いろいろ部屋の説明〜
+                </p>
+            </div>
+        </span>
+
+        <v-spacer style="margin: 30px"></v-spacer>
+        <span class="description">
+            <div>
+                <ul class="bullet">
+                    <li class="no-margin">ツインルーム(男女共用)</li>
+                </ul>
+            </div>
+            <div>
+                <p class="no-margin">twin beds mixroom</p>
+            </div>
+        </span>
+        <div class="img_pad">
+            <hooper style="height: auto" :settings="hooperSettings">
+                <slide v-for="(item, i) in items" :key="i">
+                    <img :src="item.src" width="85%" />
+                </slide>
+                <hooper-pagination slot="hooper-addons" />
+                <!-- <hooper-navigation slot="hooper-addons" /> -->
+            </hooper>
+        </div>
+        <span class="smalldescription">
+            <div>
+                <ul class="bullet">
+                    <li class="no-margin smallbullet">
+                        料金 1ベッド1名様 4000円
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <p class="no-margin">
+                    ツインベッドの部屋です。いろいろ部屋の説明〜
+                </p>
+            </div>
+        </span>
+        <v-spacer style="margin: 250px"></v-spacer>
+        <v-spacer style="margin: 250px"></v-spacer>
+        <span class="description">
+            <div ref="calendar">
+                <p>予約<br />Booking</p>
+            </div>
+        </span>
+        <v-spacer style="margin: 250px"></v-spacer>
+        <span class="description">
+            <div ref="shower">
+                <p>施設・設備<br />Facilities</p>
+            </div>
+        </span>
+        <v-spacer style="margin: 250px"></v-spacer>
+        <span class="description">
+            <div ref="map">
+                <p>アクセス<br />access</p>
+            </div>
+        </span>
+        <v-spacer style="margin: 250px"></v-spacer>
+        <span class="description">
+            <div ref="ticket">
+                <p>イベント<br />Events</p>
+            </div>
+        </span>
+        <v-spacer style="margin: 250px"></v-spacer>
+        <span class="description">
+            <div ref="email">
+                <p>問い合わせ<br />Contact</p>
+            </div>
+        </span>
+        <v-spacer style="margin: 250px"></v-spacer>
+    </v-app>
+</template>
+
+<script>
+import {
+    Hooper,
+    Slide,
+    Pagination as HooperPagination,
+    // Navigation as HooperNavigation,
+} from "hooper";
+import "hooper/dist/hooper.css";
+
+export default {
+    name: "my-component",
+    components: {
+        Hooper,
+        Slide,
+        HooperPagination,
+        // HooperNavigation,
+    },
+    data: () => ({
+        guestHouseDescription:
+            "〇〇にある〇〇のゲストハウス\r\n世界一周を経験したオーナーのあったらいいなを詰め込んだゲストハウスです。説明文 〜〜〜〜〜〜〜〜〜",
+
+        items: [
+            {
+                src: require("@/assets/image/guesthouse2.png"),
+            },
+            {
+                src: require("@/assets/image/guesthouse1.png"),
+            },
+            {
+                src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
+            },
+            {
+                src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
+            },
+        ],
+        hooperSettings: {
+            itemsToShow: 1,
+            infiniteScroll: true,
+            centerMode: true,
+            wheelControl: false,
+        },
+
+        targetPosBed: null,
+        targetPosCalendar: null,
+        targetPosShower: null,
+        targetPosMap: null,
+        targetPosTicket: null,
+        targetPosEmail: null,
+        scrollheight: null,
+        scrollheightNew: null,
+        scrollheightOld: null,
+        loading: true,
+    }),
+    watch: {
+        scrollheight: function (scrollheightNew, scrollheightOld) {
+            // データが変化した時に行いたい処理
+            //スクロール量 > ターゲット要素の位置
+            if (
+                scrollheightNew <= this.targetPosBed &&
+                scrollheightOld > this.targetPosBed
+            ) {
+                this.$refs.rightlist.classList.add("hiddenout"); //hiddenクラスを追加
+                this.$refs.rightlist.classList.remove("visible"); //visibleクラスを削除
+            } else if (
+                scrollheightNew >= this.targetPosBed &&
+                scrollheightOld < this.targetPosBed
+            ) {
+                this.$refs.rightlist.classList.remove("hidden"); //hiddenクラスを削除
+                this.$refs.rightlist.classList.add("visible"); //visibleクラスを追加
+
+                this.opacityChange("bed");
+            } else if (
+                scrollheightNew >= this.targetPosCalendar &&
+                scrollheightOld < this.targetPosCalendar
+            ) {
+                this.opacityChange("calendar");
+            } else if (
+                scrollheightNew <= this.targetPosCalendar &&
+                scrollheightOld > this.targetPosCalendar
+            ) {
+                this.opacityChange("bed");
+            } else if (
+                scrollheightNew >= this.targetPosShower &&
+                scrollheightOld < this.targetPosShower
+            ) {
+                this.opacityChange("shower");
+            } else if (
+                scrollheightNew <= this.targetPosShower &&
+                scrollheightOld > this.targetPosShower
+            ) {
+                this.opacityChange("calendar");
+            } else if (
+                scrollheightNew >= this.targetPosMap &&
+                scrollheightOld < this.targetPosMap
+            ) {
+                this.opacityChange("map");
+            } else if (
+                scrollheightNew <= this.targetPosMap &&
+                scrollheightOld > this.targetPosMap
+            ) {
+                this.opacityChange("shower");
+            } else if (
+                scrollheightNew >= this.targetPosTicket &&
+                scrollheightOld < this.targetPosTicket
+            ) {
+                this.opacityChange("ticket");
+            } else if (
+                scrollheightNew <= this.targetPosTicket &&
+                scrollheightOld > this.targetPosTicket
+            ) {
+                this.opacityChange("map");
+            } else if (
+                scrollheightNew >= this.targetPosEmail &&
+                scrollheightOld < this.targetPosEmail
+            ) {
+                this.opacityChange("email");
+            } else if (
+                scrollheightNew <= this.targetPosEmail &&
+                scrollheightOld > this.targetPosEmail
+            ) {
+                this.opacityChange("ticket");
+            }
+        },
+    },
+    mounted() {
+        setTimeout(() => {
+            this.loading = false;
+            this.scrollheight = window.scrollY;
+            // + window.scrollYがない場合、読み込み時のスクロール状態によりずれが発生する
+            this.targetPosBed =
+                this.$refs.bed.getBoundingClientRect().top +
+                this.scrollheight -
+                window.innerHeight / 2;
+            this.targetPosCalendar =
+                this.$refs.calendar.getBoundingClientRect().top +
+                this.scrollheight -
+                window.innerHeight / 2;
+            this.targetPosShower =
+                this.$refs.shower.getBoundingClientRect().top +
+                this.scrollheight -
+                window.innerHeight / 2;
+            this.targetPosMap =
+                this.$refs.map.getBoundingClientRect().top +
+                this.scrollheight -
+                window.innerHeight / 2;
+            this.targetPosTicket =
+                this.$refs.ticket.getBoundingClientRect().top +
+                this.scrollheight -
+                window.innerHeight / 2;
+            this.targetPosEmail =
+                this.$refs.email.getBoundingClientRect().top +
+                this.scrollheight -
+                window.innerHeight / 2;
+            window.addEventListener("scroll", this.handleScroll);
+        }, 400);
+    },
+    destroyed() {
+        window.removeEventListener("scroll", this.handleScroll);
+    },
+
+    methods: {
+        // スクロールイベント
+        async handleScroll() {
+            this.scrollheight = window.scrollY;
+        },
+
+        // 特定の位置までスクロール
+        scrollToElement(position) {
+            window.scrollTo({
+                top: this[position] - 70 + window.innerHeight / 2,
+                behavior: "smooth",
+            });
+        },
+        // // opacityのクラスを変更
+        // opacityChange(svgname) {
+        //     const svgRefs = [
+        //         "svgbed",
+        //         "svgcalendar",
+        //         "svgshower",
+        //         "svgmap",
+        //         "svgticket",
+        //         "svgemail",
+        //     ];
+        //     svgRefs.forEach((ref) => {
+        //         if (ref === `svg${svgname}`) {
+        //             this.$refs[ref].classList.add("right-list-svg");
+        //             this.$refs[ref].classList.remove("right-list-svg-op");
+        //         } else {
+        //             this.$refs[ref].classList.add("right-list-svg-op");
+        //             this.$refs[ref].classList.remove("right-list-svg");
+        //         }
+        //     });
+        // },
+        // opacityのクラスを変更
+        opacityChange(svgname) {
+            switch (svgname) {
+                case "bed":
+                    this.$refs.svgbed.classList.add("right-list-svg");
+                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
+                    this.$refs.svgshower.classList.add("right-list-svg-op");
+                    this.$refs.svgmap.classList.add("right-list-svg-op");
+                    this.$refs.svgticket.classList.add("right-list-svg-op");
+                    this.$refs.svgemail.classList.add("right-list-svg-op");
+                    this.$refs.svgbed.classList.remove("right-list-svg-op");
+                    this.$refs.svgcalendar.classList.remove("right-list-svg");
+                    this.$refs.svgshower.classList.remove("right-list-svg");
+                    this.$refs.svgmap.classList.remove("right-list-svg");
+                    this.$refs.svgticket.classList.remove("right-list-svg");
+                    this.$refs.svgemail.classList.remove("right-list-svg");
+                    break;
+                case "calendar":
+                    this.$refs.svgbed.classList.add("right-list-svg-op");
+                    this.$refs.svgcalendar.classList.add("right-list-svg");
+                    this.$refs.svgshower.classList.add("right-list-svg-op");
+                    this.$refs.svgmap.classList.add("right-list-svg-op");
+                    this.$refs.svgticket.classList.add("right-list-svg-op");
+                    this.$refs.svgemail.classList.add("right-list-svg-op");
+                    this.$refs.svgbed.classList.remove("right-list-svg");
+                    this.$refs.svgcalendar.classList.remove(
+                        "right-list-svg-op"
+                    );
+                    this.$refs.svgshower.classList.remove("right-list-svg");
+                    this.$refs.svgmap.classList.remove("right-list-svg");
+                    this.$refs.svgticket.classList.remove("right-list-svg");
+                    this.$refs.svgemail.classList.remove("right-list-svg");
+                    break;
+                case "shower":
+                    this.$refs.svgbed.classList.add("right-list-svg-op");
+                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
+                    this.$refs.svgshower.classList.add("right-list-svg");
+                    this.$refs.svgmap.classList.add("right-list-svg-op");
+                    this.$refs.svgticket.classList.add("right-list-svg-op");
+                    this.$refs.svgemail.classList.add("right-list-svg-op");
+                    this.$refs.svgbed.classList.remove("right-list-svg");
+                    this.$refs.svgcalendar.classList.remove("right-list-svg");
+                    this.$refs.svgshower.classList.remove("right-list-svg-op");
+                    this.$refs.svgmap.classList.remove("right-list-svg");
+                    this.$refs.svgticket.classList.remove("right-list-svg");
+                    this.$refs.svgemail.classList.remove("right-list-svg");
+                    break;
+                case "map":
+                    this.$refs.svgbed.classList.add("right-list-svg-op");
+                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
+                    this.$refs.svgshower.classList.add("right-list-svg-op");
+                    this.$refs.svgmap.classList.add("right-list-svg");
+                    this.$refs.svgticket.classList.add("right-list-svg-op");
+                    this.$refs.svgemail.classList.add("right-list-svg-op");
+                    this.$refs.svgbed.classList.remove("right-list-svg");
+                    this.$refs.svgcalendar.classList.remove("right-list-svg");
+                    this.$refs.svgshower.classList.remove("right-list-svg");
+                    this.$refs.svgmap.classList.remove("right-list-svg-op");
+                    this.$refs.svgticket.classList.remove("right-list-svg");
+                    this.$refs.svgemail.classList.remove("right-list-svg");
+                    break;
+                case "ticket":
+                    this.$refs.svgbed.classList.add("right-list-svg-op");
+                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
+                    this.$refs.svgshower.classList.add("right-list-svg-op");
+                    this.$refs.svgmap.classList.add("right-list-svg-op");
+                    this.$refs.svgticket.classList.add("right-list-svg");
+                    this.$refs.svgemail.classList.add("right-list-svg-op");
+                    this.$refs.svgbed.classList.remove("right-list-svg");
+                    this.$refs.svgcalendar.classList.remove("right-list-svg");
+                    this.$refs.svgshower.classList.remove("right-list-svg");
+                    this.$refs.svgmap.classList.remove("right-list-svg");
+                    this.$refs.svgticket.classList.remove("right-list-svg-op");
+                    this.$refs.svgemail.classList.remove("right-list-svg");
+                    break;
+                case "email":
+                    this.$refs.svgbed.classList.add("right-list-svg-op");
+                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
+                    this.$refs.svgshower.classList.add("right-list-svg-op");
+                    this.$refs.svgmap.classList.add("right-list-svg-op");
+                    this.$refs.svgticket.classList.add("right-list-svg-op");
+                    this.$refs.svgemail.classList.add("right-list-svg");
+                    this.$refs.svgbed.classList.remove("right-list-svg");
+                    this.$refs.svgcalendar.classList.remove("right-list-svg");
+                    this.$refs.svgshower.classList.remove("right-list-svg");
+                    this.$refs.svgmap.classList.remove("right-list-svg");
+                    this.$refs.svgticket.classList.remove("right-list-svg");
+                    this.$refs.svgemail.classList.remove("right-list-svg-op");
+                    break;
+                default:
+                    this.$refs.svgbed.classList.remove("right-list-svg-op");
+                    this.$refs.svgcalendar.classList.remove(
+                        "right-list-svg-op"
+                    );
+                    this.$refs.svgshower.classList.remove("right-list-svg-op");
+                    this.$refs.svgmap.classList.remove("right-list-svg-op");
+                    this.$refs.svgticket.classList.remove("right-list-svg-op");
+                    this.$refs.svgemail.classList.remove("right-list-svg-op");
+                    this.$refs.svgbed.classList.remove("right-list-svg");
+                    this.$refs.svgcalendar.classList.remove("right-list-svg");
+                    this.$refs.svgshower.classList.remove("right-list-svg");
+                    this.$refs.svgmap.classList.remove("right-list-svg");
+                    this.$refs.svgticket.classList.remove("right-list-svg");
+                    this.$refs.svgemail.classList.remove("right-list-svg");
+            }
+        },
+    },
+};
+</script>
+
+<style scoped>
+.hidden {
+    visibility: hidden;
+}
+.hiddenout {
+    /* ここを追加 */
+    animation-duration: 0.7s;
+    /* アニメーション時間 */
+    /*animation-delay : 1s;/* 変化開始の時間 */
+    animation-name: fadeout;
+    /* アニメーション名 */
+    /*animation-iteration-count: 1;/* アニメーションの繰り返し（無限）*/
+    animation-fill-mode: forwards;
+    /*これで値を保持*/
+    animation: fadeout 700ms forwards;
+}
+.visible {
+    visibility: visible;
+    opacity: 1;
+    /* ここを追加 */
+    animation-duration: 0.7s;
+    /* アニメーション時間 */
+    /*animation-delay : 1s;/* 変化開始の時間 */
+    animation-name: fadeIn;
+    /* アニメーション名 */
+    /*animation-iteration-count: 1;/* アニメーションの繰り返し（無限）*/
+    animation-fill-mode: forwards;
+    /*これで値を保持*/
+    animation: fadeIn 500ms forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        /* opacity: 0; */
+        transform: translateX(150px);
+    }
+
+    100% {
+        /* opacity: 1; */
+        transform: translateX(0px);
+    }
+}
+@keyframes fadeout {
+    0% {
+        /* opacity: 1; */
+        transform: translateX(0px);
+    }
+
+    100% {
+        /* opacity: 0; */
+        transform: translateX(150px);
+    }
+}
+</style>
