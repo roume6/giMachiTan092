@@ -6,81 +6,79 @@
                 <!-- ハンバーガー START-->
                 <v-icon large @click.stop="drawer = !drawer">mdi-menu</v-icon>
             </div>
-            <v-navigation-drawer
-                class="nav_list"
-                v-model="drawer"
-                right
-                absolute
-                temporary
-                width="100%"
-                style="position: fixed"
-            >
-                <v-icon
-                    style="float: right; margin: 7px 10px 0px 0px"
-                    large
-                    @click.stop="drawer = !drawer"
-                    >mdi-close</v-icon
-                >
+            <v-navigation-drawer class="nav_list" v-model="drawer" location="right" temporary :width="drawerWidth"
+                style="position: fixed">
+                <v-icon style="float: right; margin: 7px 10px 0px 0px" large @click.stop="drawer = !drawer">
+                    mdi-close
+                </v-icon>
                 <div class="nav_logo">
                     <router-link to="/">
-                        <img
-                            src="@/assets/image/LOGO_machi.png"
-                            width="80px"
-                            @click="logoClick()"
-                        />
+                        <img src="@/assets/image/LOGO_machi.png" width="80px" @click="logoClick()" />
                     </router-link>
                 </div>
                 <ul>
                     <li class="disable">
-                        <router-link to="GuestHouse" active-class="current">
+                        <router-link to="/" active-class="current">
                             <div @click.stop="drawer = !drawer">
-                                ゲストハウス たびのきおく<br />GUEST HOUSE Tabi
-                                no Kioku
+                                ゲストハウス たびのきおく
+                                <br />
+                                GUEST HOUSE Tabi no Kioku
                             </div>
                         </router-link>
                     </li>
                     <li class="disable">
-                        <router-link to="Cafetantan" active-class="current">
+                        <router-link to="/" active-class="current">
                             <div @click.stop="drawer = !drawer">
-                                カフェ<br />CAFE
+                                カフェ
+                                <br />
+                                CAFE
                             </div>
                         </router-link>
                     </li>
                     <li>
                         <router-link to="Consultant" active-class="current">
                             <div @click.stop="drawer = !drawer">
-                                まちづくり・コンサルタント<br />Urban
-                                design・Consulting
+                                まちづくり・コンサルタント
+                                <br />
+                                Urban design・Consulting
                             </div>
                         </router-link>
                     </li>
                     <li>
                         <a>
                             <div @click="closeAndScroll('targetPosEvents')">
-                                イベント・お知らせ<br />Events・News
+                                イベント・お知らせ
+                                <br />
+                                Events・News
                             </div>
                         </a>
                     </li>
                     <li>
-                        <router-link to="/" active-class="current">
+                        <a>
                             <div @click="closeAndScroll('targetPosAbout')">
-                                会社情報<br />About us
+                                会社情報
+                                <br />
+                                About us
                             </div>
-                        </router-link>
+                        </a>
                     </li>
                     <li class="disable">
-                        <router-link to="" active-class="current">
+                        <router-link to="/" active-class="current">
                             <div @click.stop="drawer = !drawer">
-                                予約<br />Reservation
+                                予約
+                                <br />
+                                Reservation
                             </div>
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/" active-class="current">
+                        <a>
                             <div @click="closeAndScroll('targetPosContact')">
-                                問い合わせ<br />Contact
+                                問い合わせ
+                                <br />
+                                Contact
                             </div>
-                        </router-link>
+                        </a>
                     </li>
                 </ul>
 
@@ -133,9 +131,28 @@ export default {
             NewsDetail:
                 "お知らせ・イベント詳細",
         },
+        drawerWidth: 500,
     }),
 
+    async mounted() {
+        // Set drawer width to window width
+        this.drawerWidth = window.innerWidth
+
+        // Listen to window resize and update drawer width
+        window.addEventListener('resize', this.handleResize)
+    },
+
+    unmounted() {
+        window.removeEventListener('resize', this.handleResize)
+        window.removeEventListener('scroll', this.handleScroll)
+    },
+
     methods: {
+        // Handle window resize event
+        handleResize() {
+            this.drawerWidth = window.innerWidth
+        },
+        
         closeAndScroll(name) {
             sessionStorage.setItem("ScrollToName", JSON.stringify(name));
             // setTimeout(() => {

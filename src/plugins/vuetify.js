@@ -1,10 +1,16 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib/framework';
+// Vuetify 3 setup for Vue 3
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
-Vue.use(Vuetify);
-
-export default new Vuetify({
-    icons: {
-        iconfont: 'mdiSvg', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
-      },
-});
+export default createVuetify({
+  components,
+  directives,
+  icons: {
+    defaultSet: 'mdi',
+    aliases,
+    sets: { mdi },
+  },
+})

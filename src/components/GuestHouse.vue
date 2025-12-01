@@ -208,13 +208,11 @@
             </div>
         </span>
         <div class="img_pad">
-            <hooper style="height: auto" :settings="hooperSettings">
-                <slide v-for="(item, i) in items" :key="i">
+            <Carousel :items-to-show="hooperSettings.itemsToShow" :wrap-around="hooperSettings.infiniteScroll" :mouse-drag="false">
+                <Slide v-for="(item, i) in items" :key="i">
                     <img :src="item.src" width="85%" />
-                </slide>
-                <hooper-pagination slot="hooper-addons" />
-                <!-- <hooper-navigation slot="hooper-addons" /> -->
-            </hooper>
+                </Slide>
+            </Carousel>
         </div>
         <span class="smalldescription">
             <div>
@@ -243,13 +241,11 @@
             </div>
         </span>
         <div class="img_pad">
-            <hooper style="height: auto" :settings="hooperSettings">
-                <slide v-for="(item, i) in items" :key="i">
+            <Carousel :items-to-show="hooperSettings.itemsToShow" :wrap-around="hooperSettings.infiniteScroll" :mouse-drag="false">
+                <Slide v-for="(item, i) in items" :key="i">
                     <img :src="item.src" width="85%" />
-                </slide>
-                <hooper-pagination slot="hooper-addons" />
-                <!-- <hooper-navigation slot="hooper-addons" /> -->
-            </hooper>
+                </Slide>
+            </Carousel>
         </div>
         <span class="smalldescription">
             <div>
@@ -301,21 +297,14 @@
 </template>
 
 <script>
-import {
-    Hooper,
-    Slide,
-    Pagination as HooperPagination,
-    // Navigation as HooperNavigation,
-} from "hooper";
-import "hooper/dist/hooper.css";
+import { Carousel, Slide } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
 
 export default {
     name: "my-component",
     components: {
-        Hooper,
+        Carousel,
         Slide,
-        HooperPagination,
-        // HooperNavigation,
     },
     data: () => ({
         guestHouseDescription:

@@ -1,23 +1,11 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Home_default from '@/components/Home_default.vue';
 import GuestHouse from '@/components/GuestHouse.vue';
 import Cafetantan from '@/components/Cafetantan.vue';
 import Consultant from '@/components/Consultant.vue';
 import NewsDetail from '@/components/NewsDetail.vue';
 
-Vue.use(Router);
-
-export default new Router({
-  mode: 'hash',
-  scrollBehavior() {
-    // if (savedPosition) {
-    //   return savedPosition;
-    // } else {
-      return { x: 0, y: 0 };
-    // }
-  },
-  routes: [
+const routes = [
     {
       path: '/',
       name: 'Home_default',
@@ -49,4 +37,11 @@ export default new Router({
       props: true
     },
   ]
+
+export default createRouter({
+  history: createWebHashHistory(),
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return savedPosition || { left: 0, top: 0 };
+  },
 });

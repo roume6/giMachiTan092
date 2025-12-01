@@ -1,38 +1,23 @@
 <template>
     <v-main>
-        <div v-show="this.$route.path == '/'">
+        <div v-show="$route.path === '/'">
             <div class="hamburger">
                 <!-- ハンバーガー START-->
                 <v-icon large @click.stop="drawer = !drawer">mdi-menu</v-icon>
             </div>
-            <v-navigation-drawer
-                class="nav_list"
-                v-model="drawer"
-                right
-                absolute
-                temporary
-                width="100%"
-                style="position: fixed"
-            >
-                <v-icon
-                    style="float: right; margin: 7px 10px 0px 0px"
-                    large
-                    @click.stop="drawer = !drawer"
-                >
+            <v-navigation-drawer class="nav_list" v-model="drawer" location="right" temporary :width="drawerWidth"
+                style="position: fixed">
+                <v-icon style="float: right; margin: 7px 10px 0px 0px" large @click.stop="drawer = !drawer">
                     mdi-close
                 </v-icon>
                 <div class="nav_logo">
                     <router-link to="/">
-                        <img
-                            src="@/assets/image/LOGO_machi.png"
-                            width="80px"
-                            @click="logoClick()"
-                        />
+                        <img src="@/assets/image/LOGO_machi.png" width="80px" @click="logoClick()" />
                     </router-link>
                 </div>
                 <ul>
                     <li class="disable">
-                        <router-link to="" active-class="current">
+                        <router-link to="/" active-class="current">
                             <div @click.stop="drawer = !drawer">
                                 ゲストハウス たびのきおく
                                 <br />
@@ -41,7 +26,7 @@
                         </router-link>
                     </li>
                     <li class="disable">
-                        <router-link to="" active-class="current">
+                        <router-link to="/" active-class="current">
                             <div @click.stop="drawer = !drawer">
                                 カフェ
                                 <br />
@@ -68,16 +53,16 @@
                         </a>
                     </li>
                     <li>
-                        <router-link to="/" active-class="current">
+                        <a>
                             <div @click="closeAndScroll('targetPosAbout')">
                                 会社情報
                                 <br />
                                 About us
                             </div>
-                        </router-link>
+                        </a>
                     </li>
                     <li class="disable">
-                        <router-link to="" active-class="current">
+                        <router-link to="/" active-class="current">
                             <div @click.stop="drawer = !drawer">
                                 予約
                                 <br />
@@ -86,13 +71,13 @@
                         </router-link>
                     </li>
                     <li>
-                        <router-link to="/" active-class="current">
+                        <a>
                             <div @click="closeAndScroll('targetPosContact')">
                                 問い合わせ
                                 <br />
                                 Contact
                             </div>
-                        </router-link>
+                        </a>
                     </li>
                 </ul>
 
@@ -114,10 +99,7 @@
                 <li>
                     <div class="disable">
                         <router-link to="">
-                            <img
-                                src="@/assets/image/Home/li1.png"
-                                height="100px"
-                            />
+                            <img src="@/assets/image/Home/li1.png" height="100px" />
                             <p>
                                 ゲストハウス
                                 <br />
@@ -132,10 +114,7 @@
                 <li>
                     <div class="disable">
                         <router-link to="">
-                            <img
-                                src="@/assets/image/Home/li2.png"
-                                height="100px"
-                            />
+                            <img src="@/assets/image/Home/li2.png" height="100px" />
                             <p>カフェ</p>
                         </router-link>
                     </div>
@@ -146,10 +125,7 @@
                 <li>
                     <div>
                         <router-link to="Consultant" active-class="current">
-                            <img
-                                src="@/assets/image/Home/li3.png"
-                                height="100px"
-                            />
+                            <img src="@/assets/image/Home/li3.png" height="100px" />
                             <p>
                                 まちづくり
                                 <br />
@@ -161,18 +137,10 @@
             </ul>
         </div>
         <div style="margin-top: 5px">
-            <img
-                class="img_pad"
-                src="@/assets/image/Home/homeImg1.png"
-                width="100%"
-            />
+            <img class="img_pad" src="@/assets/image/Home/homeImg1.png" width="100%" />
         </div>
         <div style="margin: 5px 0px">
-            <img
-                class="img_pad"
-                src="@/assets/image/Home/homeImg1_211.png"
-                width="100%"
-            />
+            <img class="img_pad" src="@/assets/image/Home/homeImg1_211.png" width="100%" />
         </div>
         <span class="tinydescription">
             <div>
@@ -197,17 +165,9 @@
                 </div>
                 <div class="about-inline about-inline-right">
                     <router-link v-if="item.Detail" to="NewsDetail">
-                        <p
-                            style="margin-right: 12%"
-                            v-text="item.Content"
-                            @click="NewsClick(item)"
-                        ></p>
+                        <p style="margin-right: 12%" v-text="item.Content" @click="NewsClick(item)"></p>
                     </router-link>
-                    <p
-                        v-else
-                        style="margin-right: 12%"
-                        v-text="item.Content"
-                    ></p>
+                    <p v-else style="margin-right: 12%" v-text="item.Content"></p>
                 </div>
                 <v-spacer style="margin: 5px"></v-spacer>
             </span>
@@ -265,11 +225,7 @@
             <v-spacer style="margin: 15px"></v-spacer>
             <div class="about-inline about-inline-left"></div>
             <div class="about-inline about-inline-middle">
-                <img
-                    src="@/assets/image/Home/yuka.jpg"
-                    width="100%"
-                    style="padding-right: 10px; max-width: 200px"
-                />
+                <img src="@/assets/image/Home/yuka.jpg" width="100%" style="padding-right: 10px; max-width: 200px" />
             </div>
             <div class="about-inline about-inline-right">
                 <p v-text="profile"></p>
@@ -337,11 +293,18 @@ export default {
         scrollheight: null,
         drawer: false,
         scrollToName: null,
+        drawerWidth: 500,
 
         newsDetailDialog: false,
     }),
 
     async mounted() {
+        // Set drawer width to window width
+        this.drawerWidth = window.innerWidth
+        
+        // Listen to window resize and update drawer width
+        window.addEventListener('resize', this.handleResize)
+        
         // const response =
         await fetch(url)
             .then((res) => res.json())
@@ -376,11 +339,17 @@ export default {
         }, 400)
     },
 
-    destroyed() {
+    unmounted() {
+        window.removeEventListener('resize', this.handleResize)
         window.removeEventListener('scroll', this.handleScroll)
     },
 
     methods: {
+        // Handle window resize event
+        handleResize() {
+            this.drawerWidth = window.innerWidth
+        },
+
         // 特定の位置までスクロール
         scrollToElement(position) {
             // console.log(this.targetPosEvents);

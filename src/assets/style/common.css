@@ -180,6 +180,10 @@ body {
     padding: 0px;
 }
 
+.v-application {
+    color: #1b465b !important;
+}
+
 .theme--light.v-application {
     color: #1b465b;
     background-color: #e4d8d3;
@@ -1085,10 +1089,10 @@ table {
 ------------------------------------------- */
 
 /* ADD */
-.v-application--wrap {
-    background-color: #e4d8d3;
+.v-application {
+    background-color: #e4d8d3 !important;
 }
 
-html {
+body {
     background-color: #e4d8d3;
 }
