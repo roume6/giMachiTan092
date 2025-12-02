@@ -1,92 +1,5 @@
 <template>
     <v-main>
-        <div v-show="$route.path === '/'">
-            <div class="hamburger">
-                <!-- ハンバーガー START-->
-                <v-icon large @click.stop="drawer = !drawer">mdi-menu</v-icon>
-            </div>
-            <v-navigation-drawer class="nav_list" v-model="drawer" location="right" temporary :width="drawerWidth"
-                style="position: fixed">
-                <v-icon style="float: right; margin: 7px 10px 0px 0px" large @click.stop="drawer = !drawer">
-                    mdi-close
-                </v-icon>
-                <div class="nav_logo">
-                    <router-link to="/">
-                        <img src="@/assets/image/LOGO_machi.png" width="80px" @click="logoClick()" />
-                    </router-link>
-                </div>
-                <ul>
-                    <li class="disable">
-                        <router-link to="/" active-class="current">
-                            <div @click.stop="drawer = !drawer">
-                                ゲストハウス たびのきおく
-                                <br />
-                                GUEST HOUSE Tabi no Kioku
-                            </div>
-                        </router-link>
-                    </li>
-                    <li class="disable">
-                        <router-link to="/" active-class="current">
-                            <div @click.stop="drawer = !drawer">
-                                カフェ
-                                <br />
-                                CAFE
-                            </div>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="Consultant" active-class="current">
-                            <div @click.stop="drawer = !drawer">
-                                まちづくり・コンサルタント
-                                <br />
-                                Urban design・Consulting
-                            </div>
-                        </router-link>
-                    </li>
-                    <li>
-                        <a>
-                            <div @click="closeAndScroll('targetPosEvents')">
-                                イベント・お知らせ
-                                <br />
-                                Events・News
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <div @click="closeAndScroll('targetPosAbout')">
-                                会社情報
-                                <br />
-                                About us
-                            </div>
-                        </a>
-                    </li>
-                    <li class="disable">
-                        <router-link to="/" active-class="current">
-                            <div @click.stop="drawer = !drawer">
-                                予約
-                                <br />
-                                Reservation
-                            </div>
-                        </router-link>
-                    </li>
-                    <li>
-                        <a>
-                            <div @click="closeAndScroll('targetPosContact')">
-                                問い合わせ
-                                <br />
-                                Contact
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- <ul class="marginTop">
-                    <li>Instagram</li>
-                </ul> -->
-            </v-navigation-drawer>
-            <!-- ハンバーガー END-->
-        </div>
         <div class="center">
             <img src="@/assets/image/LOGO_machi.png" class="home-logo" />
         </div>
@@ -149,7 +62,7 @@
         </span>
         <v-spacer style="margin: 50px"></v-spacer>
         <!-- イベント -->
-        <div ref="events" class="body-title">
+        <div data-scroll-target="events" class="body-title">
             <p>
                 イベント・お知らせ
                 <br />
@@ -174,7 +87,7 @@
         </div>
         <v-spacer style="margin: 40px"></v-spacer>
         <!-- 会社情報 -->
-        <div ref="About" class="body-title">
+        <div data-scroll-target="about" class="body-title">
             <p>
                 会社情報
                 <br />
@@ -243,7 +156,7 @@
         </span>
         <v-spacer style="margin: 50px"></v-spacer>
         <!-- 問い合わせ -->
-        <div ref="Contact" class="body-title">
+        <div data-scroll-target="contact" class="body-title">
             <p>
                 問い合わせ
                 <br />
@@ -287,93 +200,18 @@ export default {
 
         profile:
             '岐阜県多治見市出身 \r\n新卒で建設コンサルタント会社に就職\r\n7年間公園や公共空間の計画設計をメインに\r\n住民主体のまちづくりを実施\r\n技術士(建設部門・都市及び地方計画)を取得\r\n退社後に7ヶ月間の世界一周ひとり旅を経験\r\n帰国後に合同会社まちたびデザインを設立',
-        targetPosEvents: null,
-        targetPosAbout: null,
-        targetPosContact: null,
-        scrollheight: null,
-        drawer: false,
-        scrollToName: null,
-        drawerWidth: 500,
 
         newsDetailDialog: false,
     }),
 
     async mounted() {
-        // Set drawer width to window width
-        this.drawerWidth = window.innerWidth
-        
-        // Listen to window resize and update drawer width
-        window.addEventListener('resize', this.handleResize)
-        
         // const response =
         await fetch(url)
             .then((res) => res.json())
             .then((res) => (this.news = res))
-        // console.log(response);
-        // console.log(this.news);
-        setTimeout(() => {}, 100)
-
-        setTimeout(() => {
-            this.scrollheight = window.scrollY
-            // + window.scrollYがない場合、読み込み時のスクロール状態によりずれが発生する
-            this.targetPosEvents =
-                this.$refs.events.getBoundingClientRect().top +
-                this.scrollheight -
-                window.innerHeight / 2
-            this.targetPosAbout =
-                this.$refs.About.getBoundingClientRect().top +
-                this.scrollheight -
-                window.innerHeight / 2
-            this.targetPosContact =
-                this.$refs.Contact.getBoundingClientRect().top +
-                this.scrollheight -
-                window.innerHeight / 2
-
-            this.scrollToName = JSON.parse(
-                sessionStorage.getItem('ScrollToName')
-            )
-            if (this.scrollToName != null && this.scrollToName != undefined) {
-                this.scrollToElement(this.scrollToName)
-                sessionStorage.removeItem('ScrollToName')
-            }
-        }, 400)
-    },
-
-    unmounted() {
-        window.removeEventListener('resize', this.handleResize)
-        window.removeEventListener('scroll', this.handleScroll)
     },
 
     methods: {
-        // Handle window resize event
-        handleResize() {
-            this.drawerWidth = window.innerWidth
-        },
-
-        // 特定の位置までスクロール
-        scrollToElement(position) {
-            // console.log(this.targetPosEvents);
-            window.scrollTo({
-                top: this[position] - 30 + window.innerHeight / 2,
-                behavior: 'smooth',
-            })
-        },
-
-        // ハンバーガーメニュー内押下時のスクロール（お知らせ、会社情報、問い合わせ）
-        closeAndScroll(name) {
-            this.drawer = false
-            this.scrollToElement(name)
-        },
-
-        // ロゴクリック時のセッション削除・スクロール
-        logoClick() {
-            sessionStorage.removeItem('ScrollToName')
-            this.drawer = false
-            window.scrollTo({
-                top: 0,
-            })
-        },
-
         // お知らせの詳細をセッションストレージに保存
         NewsClick(item) {
             sessionStorage.removeItem('NewsItem')

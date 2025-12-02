@@ -1,93 +1,86 @@
 <template>
     <v-app>
-        <!-- <div v-show="this.$route.path == '/'"> -->
-        <div v-show="this.$route.path !== '/'">
-            <div class="hamburger">
-                <!-- ハンバーガー START-->
-                <v-icon large @click.stop="drawer = !drawer">mdi-menu</v-icon>
-            </div>
-            <v-navigation-drawer class="nav_list" v-model="drawer" location="right" temporary :width="drawerWidth"
-                style="position: fixed">
-                <v-icon style="float: right; margin: 7px 10px 0px 0px" large @click.stop="drawer = !drawer">
-                    mdi-close
-                </v-icon>
-                <div class="nav_logo">
-                    <router-link to="/">
-                        <img src="@/assets/image/LOGO_machi.png" width="80px" @click="logoClick()" />
-                    </router-link>
-                </div>
-                <ul>
-                    <li class="disable">
-                        <router-link to="/" active-class="current">
-                            <div @click.stop="drawer = !drawer">
-                                ゲストハウス たびのきおく
-                                <br />
-                                GUEST HOUSE Tabi no Kioku
-                            </div>
-                        </router-link>
-                    </li>
-                    <li class="disable">
-                        <router-link to="/" active-class="current">
-                            <div @click.stop="drawer = !drawer">
-                                カフェ
-                                <br />
-                                CAFE
-                            </div>
-                        </router-link>
-                    </li>
-                    <li>
-                        <router-link to="Consultant" active-class="current">
-                            <div @click.stop="drawer = !drawer">
-                                まちづくり・コンサルタント
-                                <br />
-                                Urban design・Consulting
-                            </div>
-                        </router-link>
-                    </li>
-                    <li>
-                        <a>
-                            <div @click="closeAndScroll('targetPosEvents')">
-                                イベント・お知らせ
-                                <br />
-                                Events・News
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <div @click="closeAndScroll('targetPosAbout')">
-                                会社情報
-                                <br />
-                                About us
-                            </div>
-                        </a>
-                    </li>
-                    <li class="disable">
-                        <router-link to="/" active-class="current">
-                            <div @click.stop="drawer = !drawer">
-                                予約
-                                <br />
-                                Reservation
-                            </div>
-                        </router-link>
-                    </li>
-                    <li>
-                        <a>
-                            <div @click="closeAndScroll('targetPosContact')">
-                                問い合わせ
-                                <br />
-                                Contact
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- <ul class="marginTop">
-                    <li>Instagram</li>
-                </ul> -->
-            </v-navigation-drawer>
-            <!-- ハンバーガー END-->
+        <div class="hamburger">
+            <!-- ハンバーガー START-->
+            <v-icon large @click.stop="drawer = !drawer">mdi-menu</v-icon>
         </div>
+        <v-navigation-drawer class="nav_list" v-model="drawer" location="right" temporary :width="drawerWidth"
+            style="position: fixed">
+            <v-icon style="float: right; margin: 7px 10px 0px 0px" large @click.stop="drawer = !drawer">
+                mdi-close
+            </v-icon>
+            <div class="nav_logo">
+                <router-link to="/">
+                    <img src="@/assets/image/LOGO_machi.png" width="80px" @click="logoClick()" />
+                </router-link>
+            </div>
+            <ul>
+                <li class="disable">
+                    <router-link to="/" active-class="current">
+                        <div @click.stop="drawer = !drawer">
+                            ゲストハウス たびのきおく
+                            <br />
+                            GUEST HOUSE Tabi no Kioku
+                        </div>
+                    </router-link>
+                </li>
+                <li class="disable">
+                    <router-link to="/" active-class="current">
+                        <div @click.stop="drawer = !drawer">
+                            カフェ
+                            <br />
+                            CAFE
+                        </div>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="Consultant" active-class="current">
+                        <div @click.stop="drawer = !drawer">
+                            まちづくり・コンサルタント
+                            <br />
+                            Urban design・Consulting
+                        </div>
+                    </router-link>
+                </li>
+                <li>
+                    <a>
+                        <div @click="closeAndScroll('targetPosEvents')">
+                            イベント・お知らせ
+                            <br />
+                            Events・News
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <div @click="closeAndScroll('targetPosAbout')">
+                            会社情報
+                            <br />
+                            About us
+                        </div>
+                    </a>
+                </li>
+                <li class="disable">
+                    <router-link to="/" active-class="current">
+                        <div @click.stop="drawer = !drawer">
+                            予約
+                            <br />
+                            Reservation
+                        </div>
+                    </router-link>
+                </li>
+                <li>
+                    <a>
+                        <div @click="closeAndScroll('targetPosContact')">
+                            問い合わせ
+                            <br />
+                            Contact
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </v-navigation-drawer>
+        <!-- ハンバーガー END-->
 
         <!-- ヘッダー -->
         <div v-show="this.$route.path !== '/'">
@@ -132,6 +125,9 @@ export default {
                 "お知らせ・イベント詳細",
         },
         drawerWidth: 500,
+        targetPosEvents: null,
+        targetPosAbout: null,
+        targetPosContact: null,
     }),
 
     async mounted() {
@@ -140,6 +136,9 @@ export default {
 
         // Listen to window resize and update drawer width
         window.addEventListener('resize', this.handleResize)
+
+        // Initialize scroll positions on home page
+        this.initializeScrollPositions()
     },
 
     unmounted() {
@@ -152,25 +151,82 @@ export default {
         handleResize() {
             this.drawerWidth = window.innerWidth
         },
-        
+
+        // Initialize scroll positions for home page sections
+        initializeScrollPositions() {
+            setTimeout(() => {
+                if (this.$route.path === '/') {
+                    const scrollheight = window.scrollY
+                    const eventsEl = document.querySelector('[data-scroll-target="events"]')
+                    const aboutEl = document.querySelector('[data-scroll-target="about"]')
+                    const contactEl = document.querySelector('[data-scroll-target="contact"]')
+
+                    if (eventsEl) {
+                        this.targetPosEvents =
+                            eventsEl.getBoundingClientRect().top +
+                            scrollheight -
+                            window.innerHeight / 2
+                    }
+                    if (aboutEl) {
+                        this.targetPosAbout =
+                            aboutEl.getBoundingClientRect().top +
+                            scrollheight -
+                            window.innerHeight / 2
+                    }
+                    if (contactEl) {
+                        this.targetPosContact =
+                            contactEl.getBoundingClientRect().top +
+                            scrollheight -
+                            window.innerHeight / 2
+                    }
+
+                    // Check if we need to scroll to a specific position
+                    const scrollToName = JSON.parse(
+                        sessionStorage.getItem('ScrollToName')
+                    )
+                    if (scrollToName != null && scrollToName != undefined) {
+                        this.scrollToElement(scrollToName)
+                        sessionStorage.removeItem('ScrollToName')
+                    }
+                }
+            }, 400)
+        },
+
+        // Scroll to specific element position
+        scrollToElement(position) {
+            if (this[position] !== null) {
+                window.scrollTo({
+                    top: this[position] - 30 + window.innerHeight / 2,
+                    behavior: 'smooth',
+                })
+            }
+        },
+
         closeAndScroll(name) {
-            sessionStorage.setItem("ScrollToName", JSON.stringify(name));
-            // setTimeout(() => {
-                // this.$router.go({
-                //     path: this.$router.currentRoute.path,
-                //     force: true,
-                // });
-                // this.$router.go(0);
-                this.$router.push('/');
-            // }, 100);
-                this.drawer = false;
+            if (this.$route.path === '/') {
+                // Already on home page, just scroll
+                this.scrollToElement(name)
+            } else {
+                // Navigate to home page first, then scroll
+                sessionStorage.setItem("ScrollToName", JSON.stringify(name))
+                this.$router.push('/')
+            }
+            this.drawer = false
         },
 
         logoClick(){
-            sessionStorage.removeItem("ScrollToName");
-            this.drawer = false;
+            sessionStorage.removeItem("ScrollToName")
+            this.drawer = false
         }
     },
+
+    watch: {
+        '$route.path': function(newPath) {
+            if (newPath === '/') {
+                this.initializeScrollPositions()
+            }
+        }
+    }
 
 };
 </script>
