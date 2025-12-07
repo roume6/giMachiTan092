@@ -77,7 +77,7 @@
                     <p v-text="item.YearMonthDay"></p>
                 </div>
                 <div class="about-inline about-inline-right">
-                    <router-link v-if="item.Detail" to="NewsDetail">
+                    <router-link v-if="item.Detail" :to="{ name: 'NewsDetail', query: { date: item.YearMonthDay } }">
                         <p style="margin-right: 12%" v-text="item.Content" @click="NewsClick(item)"></p>
                     </router-link>
                     <p v-else style="margin-right: 12%" v-text="item.Content"></p>
@@ -182,11 +182,8 @@
 </template>
 
 <script>
-// path=JSONファイルのパス
-const url = new URL('..\\assets\\News.json', import.meta.url).href
-// const path = url.searchParams.get("@\\assets\\static\\News.json");
-
-// import newsJson from "../assets/News.json";
+// News.jsonを公開ディレクトリから読み込む（相対パス）
+const url = './assets/News.json'
 
 export default {
     data: () => ({
@@ -205,7 +202,6 @@ export default {
     }),
 
     async mounted() {
-        // const response =
         await fetch(url)
             .then((res) => res.json())
             .then((res) => (this.news = res))
