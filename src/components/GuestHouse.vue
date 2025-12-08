@@ -474,131 +474,25 @@ export default {
                 behavior: "smooth",
             });
         },
-        // // opacityのクラスを変更
-        // opacityChange(svgname) {
-        //     const svgRefs = [
-        //         "svgbed",
-        //         "svgcalendar",
-        //         "svgshower",
-        //         "svgmap",
-        //         "svgticket",
-        //         "svgemail",
-        //     ];
-        //     svgRefs.forEach((ref) => {
-        //         if (ref === `svg${svgname}`) {
-        //             this.$refs[ref].classList.add("right-list-svg");
-        //             this.$refs[ref].classList.remove("right-list-svg-op");
-        //         } else {
-        //             this.$refs[ref].classList.add("right-list-svg-op");
-        //             this.$refs[ref].classList.remove("right-list-svg");
-        //         }
-        //     });
-        // },
         // opacityのクラスを変更
-        opacityChange(svgname) {
-            switch (svgname) {
-                case "bed":
-                    this.$refs.svgbed.classList.add("right-list-svg");
-                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
-                    this.$refs.svgshower.classList.add("right-list-svg-op");
-                    this.$refs.svgmap.classList.add("right-list-svg-op");
-                    this.$refs.svgticket.classList.add("right-list-svg-op");
-                    this.$refs.svgemail.classList.add("right-list-svg-op");
-                    this.$refs.svgbed.classList.remove("right-list-svg-op");
-                    this.$refs.svgcalendar.classList.remove("right-list-svg");
-                    this.$refs.svgshower.classList.remove("right-list-svg");
-                    this.$refs.svgmap.classList.remove("right-list-svg");
-                    this.$refs.svgticket.classList.remove("right-list-svg");
-                    this.$refs.svgemail.classList.remove("right-list-svg");
-                    break;
-                case "calendar":
-                    this.$refs.svgbed.classList.add("right-list-svg-op");
-                    this.$refs.svgcalendar.classList.add("right-list-svg");
-                    this.$refs.svgshower.classList.add("right-list-svg-op");
-                    this.$refs.svgmap.classList.add("right-list-svg-op");
-                    this.$refs.svgticket.classList.add("right-list-svg-op");
-                    this.$refs.svgemail.classList.add("right-list-svg-op");
-                    this.$refs.svgbed.classList.remove("right-list-svg");
-                    this.$refs.svgcalendar.classList.remove(
-                        "right-list-svg-op"
-                    );
-                    this.$refs.svgshower.classList.remove("right-list-svg");
-                    this.$refs.svgmap.classList.remove("right-list-svg");
-                    this.$refs.svgticket.classList.remove("right-list-svg");
-                    this.$refs.svgemail.classList.remove("right-list-svg");
-                    break;
-                case "shower":
-                    this.$refs.svgbed.classList.add("right-list-svg-op");
-                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
-                    this.$refs.svgshower.classList.add("right-list-svg");
-                    this.$refs.svgmap.classList.add("right-list-svg-op");
-                    this.$refs.svgticket.classList.add("right-list-svg-op");
-                    this.$refs.svgemail.classList.add("right-list-svg-op");
-                    this.$refs.svgbed.classList.remove("right-list-svg");
-                    this.$refs.svgcalendar.classList.remove("right-list-svg");
-                    this.$refs.svgshower.classList.remove("right-list-svg-op");
-                    this.$refs.svgmap.classList.remove("right-list-svg");
-                    this.$refs.svgticket.classList.remove("right-list-svg");
-                    this.$refs.svgemail.classList.remove("right-list-svg");
-                    break;
-                case "map":
-                    this.$refs.svgbed.classList.add("right-list-svg-op");
-                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
-                    this.$refs.svgshower.classList.add("right-list-svg-op");
-                    this.$refs.svgmap.classList.add("right-list-svg");
-                    this.$refs.svgticket.classList.add("right-list-svg-op");
-                    this.$refs.svgemail.classList.add("right-list-svg-op");
-                    this.$refs.svgbed.classList.remove("right-list-svg");
-                    this.$refs.svgcalendar.classList.remove("right-list-svg");
-                    this.$refs.svgshower.classList.remove("right-list-svg");
-                    this.$refs.svgmap.classList.remove("right-list-svg-op");
-                    this.$refs.svgticket.classList.remove("right-list-svg");
-                    this.$refs.svgemail.classList.remove("right-list-svg");
-                    break;
-                case "ticket":
-                    this.$refs.svgbed.classList.add("right-list-svg-op");
-                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
-                    this.$refs.svgshower.classList.add("right-list-svg-op");
-                    this.$refs.svgmap.classList.add("right-list-svg-op");
-                    this.$refs.svgticket.classList.add("right-list-svg");
-                    this.$refs.svgemail.classList.add("right-list-svg-op");
-                    this.$refs.svgbed.classList.remove("right-list-svg");
-                    this.$refs.svgcalendar.classList.remove("right-list-svg");
-                    this.$refs.svgshower.classList.remove("right-list-svg");
-                    this.$refs.svgmap.classList.remove("right-list-svg");
-                    this.$refs.svgticket.classList.remove("right-list-svg-op");
-                    this.$refs.svgemail.classList.remove("right-list-svg");
-                    break;
-                case "email":
-                    this.$refs.svgbed.classList.add("right-list-svg-op");
-                    this.$refs.svgcalendar.classList.add("right-list-svg-op");
-                    this.$refs.svgshower.classList.add("right-list-svg-op");
-                    this.$refs.svgmap.classList.add("right-list-svg-op");
-                    this.$refs.svgticket.classList.add("right-list-svg-op");
-                    this.$refs.svgemail.classList.add("right-list-svg");
-                    this.$refs.svgbed.classList.remove("right-list-svg");
-                    this.$refs.svgcalendar.classList.remove("right-list-svg");
-                    this.$refs.svgshower.classList.remove("right-list-svg");
-                    this.$refs.svgmap.classList.remove("right-list-svg");
-                    this.$refs.svgticket.classList.remove("right-list-svg");
-                    this.$refs.svgemail.classList.remove("right-list-svg-op");
-                    break;
-                default:
-                    this.$refs.svgbed.classList.remove("right-list-svg-op");
-                    this.$refs.svgcalendar.classList.remove(
-                        "right-list-svg-op"
-                    );
-                    this.$refs.svgshower.classList.remove("right-list-svg-op");
-                    this.$refs.svgmap.classList.remove("right-list-svg-op");
-                    this.$refs.svgticket.classList.remove("right-list-svg-op");
-                    this.$refs.svgemail.classList.remove("right-list-svg-op");
-                    this.$refs.svgbed.classList.remove("right-list-svg");
-                    this.$refs.svgcalendar.classList.remove("right-list-svg");
-                    this.$refs.svgshower.classList.remove("right-list-svg");
-                    this.$refs.svgmap.classList.remove("right-list-svg");
-                    this.$refs.svgticket.classList.remove("right-list-svg");
-                    this.$refs.svgemail.classList.remove("right-list-svg");
-            }
+        opacityChange(activeSvgname) {
+            const svgRefs = [
+                "svgbed",
+                "svgcalendar",
+                "svgshower",
+                "svgmap",
+                "svgticket",
+                "svgemail",
+            ];
+            svgRefs.forEach((ref) => {
+                if (ref === `svg${activeSvgname}`) {
+                    this.$refs[ref].classList.add("right-list-svg");
+                    this.$refs[ref].classList.remove("right-list-svg-op");
+                } else {
+                    this.$refs[ref].classList.add("right-list-svg-op");
+                    this.$refs[ref].classList.remove("right-list-svg");
+                }
+            });
         },
     },
 };
@@ -648,6 +542,12 @@ export default {
     text-align: center;
 }
 
+.description p {
+    padding: 0 50px;
+    margin-bottom: 16px;
+    white-space: pre-wrap;
+}
+
 .smalldescription {
     padding: 0px;
     margin: 0px;
@@ -659,6 +559,12 @@ export default {
     display: flex;
     justify-content: center;
     text-align: center;
+}
+
+.smalldescription p {
+    padding: 0 50px;
+    margin: 0 !important;
+    white-space: pre-wrap;
 }
 
 .hooper-list {
