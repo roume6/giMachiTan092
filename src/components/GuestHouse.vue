@@ -12,92 +12,104 @@
         </div>
 
         <!-- メインのリスト START-->
-        <ul class="GuestHouse_list">
+        <ul class="vertical-menu">
             <li @click="scrollToElement('targetPosBed')">
-                <p>部屋<br />Rooms</p>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="#1b465b"
-                    width="60%"
-                >
-                    <title>bed</title>
-                    <path
-                        d="M19,7H11V14H3V5H1V20H3V17H21V20H23V11A4,4 0 0,0 19,7M7,13A3,3 0 0,0 10,10A3,3 0 0,0 7,7A3,3 0 0,0 4,10A3,3 0 0,0 7,13Z"
-                    />
-                </svg>
+                <div class="menu-icon-item">
+                    <p>部屋<br />Rooms</p>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="60%"
+                    >
+                        <title>bed</title>
+                        <path
+                            d="M19,7H11V14H3V5H1V20H3V17H21V20H23V11A4,4 0 0,0 19,7M7,13A3,3 0 0,0 10,10A3,3 0 0,0 7,7A3,3 0 0,0 4,10A3,3 0 0,0 7,13Z"
+                        />
+                    </svg>
+                </div>
             </li>
             <li @click="scrollToElement('targetPosCalendar')">
-                <p>予約<br />Booking</p>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="#1b465b"
-                    width="60%"
-                >
-                    <title>calendar-check</title>
-                    <path
-                        d="M19,19H5V8H19M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M16.53,11.06L15.47,10L10.59,14.88L8.47,12.76L7.41,13.82L10.59,17L16.53,11.06Z"
-                    />
-                </svg>
+                <div class="menu-icon-item">
+                    <p>予約<br />Booking</p>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="60%"
+                    >
+                        <title>calendar-check</title>
+                        <path
+                            d="M19,19H5V8H19M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M16.53,11.06L15.47,10L10.59,14.88L8.47,12.76L7.41,13.82L10.59,17L16.53,11.06Z"
+                        />
+                    </svg>
+                </div>
             </li>
             <li @click="scrollToElement('targetPosShower')">
-                <p>施設・設備<br />Facilities</p>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="#1b465b"
-                    width="60%"
-                >
-                    <title>shower</title>
-                    <path
-                        d="M21,14V15C21,16.91 19.93,18.57 18.35,19.41L19,22H17L16.5,20C16.33,20 16.17,20 16,20H8C7.83,20 7.67,20 7.5,20L7,22H5L5.65,19.41C4.07,18.57 3,16.91 3,15V14H2V12H20V5A1,1 0 0,0 19,4C18.5,4 18.12,4.34 18,4.79C18.63,5.33 19,6.13 19,7H13A3,3 0 0,1 16,4C16.06,4 16.11,4 16.17,4C16.58,2.84 17.69,2 19,2A3,3 0 0,1 22,5V14H21V14M19,14H5V15A3,3 0 0,0 8,18H16A3,3 0 0,0 19,15V14Z"
-                    />
-                </svg>
+                <div class="menu-icon-item">
+                    <p>施設・設備<br />Facilities</p>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="60%"
+                    >
+                        <title>shower</title>
+                        <path
+                            d="M21,14V15C21,16.91 19.93,18.57 18.35,19.41L19,22H17L16.5,20C16.33,20 16.17,20 16,20H8C7.83,20 7.67,20 7.5,20L7,22H5L5.65,19.41C4.07,18.57 3,16.91 3,15V14H2V12H20V5A1,1 0 0,0 19,4C18.5,4 18.12,4.34 18,4.79C18.63,5.33 19,6.13 19,7H13A3,3 0 0,1 16,4C16.06,4 16.11,4 16.17,4C16.58,2.84 17.69,2 19,2A3,3 0 0,1 22,5V14H21V14M19,14H5V15A3,3 0 0,0 8,18H16A3,3 0 0,0 19,15V14Z"
+                        />
+                    </svg>
+                </div>
             </li>
         </ul>
-        <ul class="GuestHouse_list">
+        <ul class="vertical-menu">
             <li @click="scrollToElement('targetPosMap')">
-                <p>アクセス<br />Access</p>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="#1b465b"
-                    width="60%"
-                >
-                    <title>map-marker-radius</title>
-                    <path
-                        d="M12,2C15.31,2 18,4.66 18,7.95C18,12.41 12,19 12,19C12,19 6,12.41 6,7.95C6,4.66 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M20,19C20,21.21 16.42,23 12,23C7.58,23 4,21.21 4,19C4,17.71 5.22,16.56 7.11,15.83L7.75,16.74C6.67,17.19 6,17.81 6,18.5C6,19.88 8.69,21 12,21C15.31,21 18,19.88 18,18.5C18,17.81 17.33,17.19 16.25,16.74L16.89,15.83C18.78,16.56 20,17.71 20,19Z"
-                    />
-                </svg>
+                <div class="menu-icon-item">
+                    <p>アクセス<br />Access</p>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="60%"
+                    >
+                        <title>map-marker-radius</title>
+                        <path
+                            d="M12,2C15.31,2 18,4.66 18,7.95C18,12.41 12,19 12,19C12,19 6,12.41 6,7.95C6,4.66 8.69,2 12,2M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M20,19C20,21.21 16.42,23 12,23C7.58,23 4,21.21 4,19C4,17.71 5.22,16.56 7.11,15.83L7.75,16.74C6.67,17.19 6,17.81 6,18.5C6,19.88 8.69,21 12,21C15.31,21 18,19.88 18,18.5C18,17.81 17.33,17.19 16.25,16.74L16.89,15.83C18.78,16.56 20,17.71 20,19Z"
+                        />
+                    </svg>
+                </div>
             </li>
             <li @click="scrollToElement('targetPosTicket')">
-                <p>イベント<br />Events</p>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="#1b465b"
-                    width="60%"
-                >
-                    <title>ticket-confirmation-outline</title>
-                    <path
-                        d="M22 10V6C22 4.89 21.1 4 20 4H4C2.9 4 2 4.89 2 6V10C3.11 10 4 10.9 4 12S3.11 14 2 14V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V14C20.9 14 20 13.1 20 12S20.9 10 22 10M20 8.54C18.81 9.23 18 10.53 18 12S18.81 14.77 20 15.46V18H4V15.46C5.19 14.77 6 13.47 6 12C6 10.5 5.2 9.23 4 8.54L4 6H20V8.54M11 15H13V17H11M11 11H13V13H11M11 7H13V9H11Z"
-                    />
-                </svg>
+                <div class="menu-icon-item">
+                    <p>イベント<br />Events</p>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="60%"
+                    >
+                        <title>ticket-confirmation-outline</title>
+                        <path
+                            d="M22 10V6C22 4.89 21.1 4 20 4H4C2.9 4 2 4.89 2 6V10C3.11 10 4 10.9 4 12S3.11 14 2 14V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V14C20.9 14 20 13.1 20 12S20.9 10 22 10M20 8.54C18.81 9.23 18 10.53 18 12S18.81 14.77 20 15.46V18H4V15.46C5.19 14.77 6 13.47 6 12C6 10.5 5.2 9.23 4 8.54L4 6H20V8.54M11 15H13V17H11M11 11H13V13H11M11 7H13V9H11Z"
+                        />
+                    </svg>
+                </div>
             </li>
             <li @click="scrollToElement('targetPosEmail')">
-                <p>問い合わせ<br />Contact</p>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="#1b465b"
-                    width="60%"
-                >
-                    <title>email-outline</title>
-                    <path
-                        d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"
-                    />
-                </svg>
+                <div class="menu-icon-item">
+                    <p>問い合わせ<br />Contact</p>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#1b465b"
+                        width="60%"
+                    >
+                        <title>email-outline</title>
+                        <path
+                            d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z"
+                        />
+                    </svg>
+                </div>
             </li>
         </ul>
         <!-- メインのリスト END-->
@@ -597,51 +609,141 @@ export default {
     visibility: hidden;
 }
 .hiddenout {
-    /* ここを追加 */
     animation-duration: 0.7s;
-    /* アニメーション時間 */
-    /*animation-delay : 1s;/* 変化開始の時間 */
     animation-name: fadeout;
-    /* アニメーション名 */
-    /*animation-iteration-count: 1;/* アニメーションの繰り返し（無限）*/
     animation-fill-mode: forwards;
-    /*これで値を保持*/
     animation: fadeout 700ms forwards;
 }
 .visible {
     visibility: visible;
     opacity: 1;
-    /* ここを追加 */
     animation-duration: 0.7s;
-    /* アニメーション時間 */
-    /*animation-delay : 1s;/* 変化開始の時間 */
     animation-name: fadeIn;
-    /* アニメーション名 */
-    /*animation-iteration-count: 1;/* アニメーションの繰り返し（無限）*/
     animation-fill-mode: forwards;
-    /*これで値を保持*/
     animation: fadeIn 500ms forwards;
+}
+
+/* GuestHouse Page Styles */
+.GuestHouse {
+    top: 100px;
+}
+
+.GuestHouse p {
+    padding: 0px 50px;
+    white-space: pre-wrap;
+}
+
+/* Shared styles from common.css: .vertical-menu */
+
+.description {
+    padding: 0px;
+    margin: 0px;
+    font-size: 22px;
+    white-space: pre-wrap;
+}
+
+.description div {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.smalldescription {
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    white-space: pre-wrap;
+}
+
+.smalldescription div {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.hooper-list {
+    height: auto !important;
+    background-color: #e4d8d3;
+}
+
+.right-list {
+    padding: 0px 0px 0px 0px !important;
+    display: flex;
+    position: fixed;
+    top: 80px;
+    right: 5px;
+    z-index: 2;
+}
+
+.right-list-svg {
+    opacity: 1;
+}
+
+.right-list-svg-op {
+    opacity: 0.3;
+}
+
+.vertical-menu li {
+    font-size: inherit !important;
+    color: #1b465b;
+    text-align: center;
+}
+
+.vertical-menu li p {
+    padding: 0px;
+    margin: 5px 0px 0px 0px;
+    white-space: pre-wrap;
+}
+
+.bullet {
+    list-style-type: square;
+    list-style-position: outside;
+}
+
+.bullet li::marker {
+    color: #000000;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
+
+.img_pad {
+    padding: 0px 15px;
+}
+
+@media screen and (min-width: 760px) {
+    .description {
+        padding: 0px;
+        margin: 0px;
+        font-size: 22px;
+        white-space: pre-wrap;
+    }
+
+    .smalldescription {
+        padding: 0px;
+        margin: 0px;
+        font-size: 20px;
+        white-space: pre-wrap;
+    }
 }
 
 @keyframes fadeIn {
     0% {
-        /* opacity: 0; */
         transform: translateX(150px);
     }
 
     100% {
-        /* opacity: 1; */
         transform: translateX(0px);
     }
 }
+
 @keyframes fadeout {
     0% {
-        /* opacity: 1; */
         transform: translateX(0px);
     }
 
     100% {
-        /* opacity: 0; */
         transform: translateX(150px);
     }
 }

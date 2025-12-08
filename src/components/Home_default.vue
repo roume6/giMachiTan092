@@ -216,3 +216,92 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+/* Home Page Styles */
+.center {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.home-logo {
+    width: 40%;
+    margin-top: 20px;
+}
+
+.concept-balloon {
+    text-align: center;
+    position: relative;
+    padding: 9px;
+    background: #1b465b;
+    font-size: 16px;
+    font-weight: 100;
+    color: #ffffff;
+    border-radius: 5px;
+    width: 83%;
+    margin: 20px auto;
+    white-space: pre-wrap;
+}
+
+.home_list {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.home_list li {
+    width: 33%;
+    margin: 0% 1% 0% 1%;
+    position: relative;
+}
+
+.homeCard {
+    position: absolute;
+    top: 0%;
+    opacity: 0.7;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    background-color: #1b465b;
+    color: #ffffff;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.homeCard p {
+    margin: auto;
+}
+
+.img_pad {
+    padding: 0px 15px;
+}
+
+.tinydescription {
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    white-space: pre-wrap;
+}
+
+.tinydescription div {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (min-width: 760px) {
+    .home-logo {
+        width: 25%;
+    }
+
+    .tinydescription {
+        padding: 0px;
+        margin: 0px;
+        font-size: 20px;
+        white-space: pre-wrap;
+    }
+}
+</style>

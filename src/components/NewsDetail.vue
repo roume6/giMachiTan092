@@ -98,3 +98,135 @@ export default {
     methods: {},
 }
 </script>
+
+<style scoped>
+/* NewsDetail Page Styles */
+.newsDetail-inline {
+    position: relative;
+    display: inline-block;
+    white-space: pre-wrap;
+    font-size: 13px;
+}
+
+.newsDetail-inline-left {
+    width: 10%;
+}
+
+.newsDetail-inline-middle {
+    width: 20%;
+    text-align: left;
+    vertical-align: top;
+}
+
+.newsDetail-inline-right {
+    width: 70%;
+    text-align: left;
+    vertical-align: top;
+}
+
+.newsDetailDescription {
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+.newsDetailDescription a {
+    text-decoration: underline;
+}
+
+.newsDetail {
+    padding: 0px;
+    margin: 16px;
+}
+
+.newsDetail-list {
+    width: auto;
+    text-align: center;
+    margin: 0% 3%;
+}
+
+.newsDetail-list p {
+    white-space: pre-wrap;
+    font-size: 13px;
+    margin: 0px;
+}
+
+.newsDetail-list li {
+    width: 100%;
+    box-align: center;
+    margin-top: 10%;
+    vertical-align: top;
+    overflow: visible;
+}
+
+.newsDetail-list-mode2 {
+    width: auto;
+    text-align: center;
+}
+
+.newsDetail-list-mode2 p {
+    white-space: pre-wrap;
+    font-size: 13px;
+    margin: 0px;
+}
+
+.newsDetail-list-mode2 li {
+    width: 44%;
+    margin: 1% 1%;
+    vertical-align: top;
+    display: inline-block;
+    overflow: visible;
+}
+
+.newsDetail-list-mode2-last {
+    width: 91% !important;
+    vertical-align: top;
+    display: inline-block;
+    overflow: visible;
+}
+
+@media screen and (min-width: 760px) {
+    .newsDetail-inline {
+        position: relative;
+        display: inline-block;
+        white-space: pre-wrap;
+        font-size: 18px;
+    }
+
+    .newsDetail-inline-left {
+        width: 23%;
+    }
+
+    .newsDetail-inline-middle {
+        width: 17%;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .newsDetail-inline-right {
+        width: 60%;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .newsDetailDescription {
+        padding: 0px;
+        margin: 40px;
+        font-size: 18px;
+        white-space: pre-wrap;
+    }
+
+    .newsDetail-list p {
+        white-space: pre-wrap;
+        font-size: 17px;
+        margin: 0px;
+    }
+
+    .newsDetail-list-mode2 p {
+        white-space: pre-wrap;
+        font-size: 17px;
+        margin: 0px;
+    }
+}
+</style>
