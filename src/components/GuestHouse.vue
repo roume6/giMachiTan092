@@ -428,8 +428,20 @@ export default {
     mounted() {
         setTimeout(() => {
             this.loading = false;
+            this.initializeTargetPositions();
+            window.addEventListener("scroll", this.handleScroll);
+            window.addEventListener("resize", this.handleResize);
+        }, 400);
+    },
+    destroyed() {
+        window.removeEventListener("scroll", this.handleScroll);
+        window.removeEventListener("resize", this.handleResize);
+    },
+
+    methods: {
+        // スクロール位置を初期化・更新
+        initializeTargetPositions() {
             this.scrollheight = window.scrollY;
-            // + window.scrollYがない場合、読み込み時のスクロール状態によりずれが発生する
             this.targetPosBed =
                 this.$refs.bed.getBoundingClientRect().top +
                 this.scrollheight -
@@ -454,17 +466,16 @@ export default {
                 this.$refs.email.getBoundingClientRect().top +
                 this.scrollheight -
                 window.innerHeight / 2;
-            window.addEventListener("scroll", this.handleScroll);
-        }, 400);
-    },
-    destroyed() {
-        window.removeEventListener("scroll", this.handleScroll);
-    },
+        },
 
-    methods: {
         // スクロールイベント
         async handleScroll() {
             this.scrollheight = window.scrollY;
+        },
+
+        // ウィンドウリサイズイベント
+        handleResize() {
+            this.initializeTargetPositions();
         },
 
         // 特定の位置までスクロール

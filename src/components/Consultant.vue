@@ -371,13 +371,8 @@ export default {
 }
 
 @media screen and (min-width: 760px) {
-    .GuestHouse_list li {
-        font-size: 20px;
-        color: #1b465b;
-        text-align: center;
-        border-radius: 5px;
-        display: flex;
-        justify-content: center;
+    .menu-icon-item {
+        max-width: 60%;
     }
 
     .cons-inline-left {

@@ -150,6 +150,8 @@ export default {
         // Handle window resize event
         handleResize() {
             this.drawerWidth = window.innerWidth
+            // Re-initialize scroll positions when window is resized
+            this.initializeScrollPositions()
         },
 
         // Initialize scroll positions for home page sections
