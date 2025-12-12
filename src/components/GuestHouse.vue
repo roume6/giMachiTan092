@@ -442,30 +442,42 @@ export default {
         // スクロール位置を初期化・更新
         initializeTargetPositions() {
             this.scrollheight = window.scrollY;
-            this.targetPosBed =
-                this.$refs.bed.getBoundingClientRect().top +
-                this.scrollheight -
-                window.innerHeight / 2;
-            this.targetPosCalendar =
-                this.$refs.calendar.getBoundingClientRect().top +
-                this.scrollheight -
-                window.innerHeight / 2;
-            this.targetPosShower =
-                this.$refs.shower.getBoundingClientRect().top +
-                this.scrollheight -
-                window.innerHeight / 2;
-            this.targetPosMap =
-                this.$refs.map.getBoundingClientRect().top +
-                this.scrollheight -
-                window.innerHeight / 2;
-            this.targetPosTicket =
-                this.$refs.ticket.getBoundingClientRect().top +
-                this.scrollheight -
-                window.innerHeight / 2;
-            this.targetPosEmail =
-                this.$refs.email.getBoundingClientRect().top +
-                this.scrollheight -
-                window.innerHeight / 2;
+            if (this.$refs.bed) {
+                this.targetPosBed =
+                    this.$refs.bed.getBoundingClientRect().top +
+                    this.scrollheight -
+                    window.innerHeight / 2;
+            }
+            if (this.$refs.calendar) {
+                this.targetPosCalendar =
+                    this.$refs.calendar.getBoundingClientRect().top +
+                    this.scrollheight -
+                    window.innerHeight / 2;
+            }
+            if (this.$refs.shower) {
+                this.targetPosShower =
+                    this.$refs.shower.getBoundingClientRect().top +
+                    this.scrollheight -
+                    window.innerHeight / 2;
+            }
+            if (this.$refs.map) {
+                this.targetPosMap =
+                    this.$refs.map.getBoundingClientRect().top +
+                    this.scrollheight -
+                    window.innerHeight / 2;
+            }
+            if (this.$refs.ticket) {
+                this.targetPosTicket =
+                    this.$refs.ticket.getBoundingClientRect().top +
+                    this.scrollheight -
+                    window.innerHeight / 2;
+            }
+            if (this.$refs.email) {
+                this.targetPosEmail =
+                    this.$refs.email.getBoundingClientRect().top +
+                    this.scrollheight -
+                    window.innerHeight / 2;
+            }
         },
 
         // スクロールイベント
