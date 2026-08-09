@@ -172,6 +172,22 @@ body {
     /* overflow: hidden; */
 }
 
+/* -------------------------------------------
+	Layout: コンテンツ幅
+	PCなどの大きな画面でも本文や画像が間延びしないよう、
+	コンテンツ全体を中央寄せの1カラムに収める
+	（--content-width より狭いスマホ表示には影響しない）
+------------------------------------------- */
+:root {
+    /* ここの数値を変えるとPC表示時のコンテンツ幅（左右の余白）を調整できる */
+    --content-width: 1100px;
+}
+
+.v-application--wrap {
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
 .v-application ul {
     padding: 0px;
 }
@@ -252,8 +268,9 @@ table {
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    top: auto;
-    left: auto;
+    top: 0;
+    /* left:auto だとコンテンツ幅に合わせた位置から始まってしまうため画面左端に固定 */
+    left: 0;
     z-index: 2;
     background-color: #e4d8d3;
     width: 100%;
@@ -293,8 +310,8 @@ table {
         align-items: center;
         justify-content: space-between;
         position: fixed;
-        top: auto;
-        left: auto;
+        top: 0;
+        left: 0;
         z-index: 2;
         background-color: #e4d8d3;
         width: 100%;
@@ -305,7 +322,7 @@ table {
         position: fixed;
         transform: translateX(-50%);
         top: 5px;
-        left: 52%;
+        left: 50%;
         z-index: 3;
         background-color: #1b465b;
         width: 350px;
@@ -315,6 +332,11 @@ table {
         text-align: center;
         border-radius: 5px;
     }
+}
+
+/* ヘッダーは画面幅いっぱいのまま、中のロゴはコンテンツ幅の左端に揃える */
+.header-line {
+    padding-left: max(0px, calc((100% - var(--content-width)) / 2)) !important;
 }
 /* -------------------------------------------
 	fade（フェードインなどの制御）
@@ -438,7 +460,8 @@ table {
 .hamburger {
     position: fixed;
     top: 1%;
-    right: 15px;
+    /* 大画面ではコンテンツ幅の右端に揃える */
+    right: max(15px, calc((100% - var(--content-width)) / 2));
     z-index: 5;
 }
 
@@ -480,6 +503,8 @@ table {
     .nav_list ul li a {
         position: relative;
         width: 50%;
+        /* 大画面でボタンが横に伸びすぎないようにする */
+        max-width: 480px;
         background-color: #1b465b;
         color: #ffffff;
         border-radius: 5px;
@@ -487,6 +512,11 @@ table {
 
     .nav_logo a img {
         width: 100px;
+    }
+
+    /* 全画面メニューのロゴも中央に揃える */
+    .nav_list .nav_logo {
+        text-align: center;
     }
 }
 /* -------------------------------------------
@@ -575,6 +605,16 @@ table {
 @media screen and (min-width: 760px) {
     .home-logo {
         width: 25%;
+    }
+
+    /* 3枚の写真が横に離れすぎないようにまとめる */
+    .home_list {
+        max-width: 660px;
+        margin: 0 auto;
+    }
+
+    .home_list li img {
+        height: 130px;
     }
 }
 
@@ -782,7 +822,8 @@ table {
     display: flex;
     position: fixed;
     top: 80px;
-    right: 5px;
+    /* 大画面ではコンテンツ幅の右端に揃える */
+    right: max(5px, calc((100% - var(--content-width)) / 2));
     z-index: 2;
 }
 
